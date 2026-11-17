@@ -33,8 +33,77 @@ def integrity_check(pr: dict, base: dict, spec: dict, base_spec: dict | None = N
         including dropping no_significant_drop)
       - an item's slice tags in PR rows differ from the baseline's (relabelling an item out of a
         slice hides its regression from the slice gate)"""
-    # TODO M7
-    return []
+    import math
+    from collections import Counter
+    from lab9.graders import GRADERS
+    problems = []
+    for name, report in [('PR', pr), ('baseline', base)]:
+        rows, manifest = report.get('rows', []), report.get('manifest', {})
+        seeds = manifest.get('seeds', [])
+        pairs = [(r.get('item_id'), r.get('seed')) for r in rows]
+        ids = {p[0] for p in pairs}
+        if len(seeds) != len(set(seeds)) or len(rows) != manifest.get('items', 0) * len(seeds):
+            problems.append(f'{name}: row count/seed manifest mismatch')
+        if len(ids) != manifest.get('items') or Counter(pairs) != Counter((i, s) for i in ids for s in seeds):
+            problems.append(f'{name}: incomplete or duplicate item/seed grid')
+        if report.get('evaluator_failures'):
+            problems.append(f'{name}: evaluator failures')
+        if not rows or not seeds:
+            problems.append(f'{name}: empty evaluation')
+        if spec.get('seeds') is not None and set(seeds) != set(spec['seeds']):
+            problems.append(f'{name}: seed manifest differs from spec')
+        tags = {}
+        for row in rows:
+            item = row.get('item_id')
+            current = frozenset(row.get('slices') or [])
+            if item in tags and tags[item] != current:
+                problems.append(f'{name}: inconsistent slice tags for {item}')
+            tags[item] = current
+        for mid, value in report.get('metrics', {}).items():
+            if not isinstance(value, (int, float)) or not math.isfinite(value):
+                problems.append(f'{name}: invalid metric {mid}')
+        for m in spec['metrics']:
+            mid = m['id']
+            if mid not in report.get('metrics', {}):
+                problems.append(f'{name}: missing metric {mid}')
+            if mid in GRADERS or any(mid in r for r in rows):
+                if any(not isinstance(r.get(mid), (int, float)) or not math.isfinite(r[mid]) for r in rows):
+                    problems.append(f'{name}: missing/nonfinite row metric {mid}')
+        # Reports contain raw scores: never trust an aggregate that contradicts them.
+        row_metrics = [m['id'] for m in spec['metrics'] if m['id'] in GRADERS]
+        if rows and all(isinstance(r.get(m), (int, float)) and math.isfinite(r[m]) for r in rows for m in row_metrics) and all(isinstance(r.get('cost'), (int, float)) and math.isfinite(r['cost']) for r in rows):
+            from lab9.eval import aggregate
+            recomputed = aggregate(rows, row_metrics, spec.get('pass_k', []))
+            for mid, expected in recomputed.items():
+                actual = report.get('metrics', {}).get(mid)
+                if mid in report.get('metrics', {}) and (expected is None or not isinstance(actual, (int, float)) or not math.isclose(actual, expected, abs_tol=1e-9)):
+                    problems.append(f'{name}: aggregate {mid} differs from raw scores')
+    bp = {(r['item_id'], r['seed']): r for r in base['rows']}
+    pp = {(r['item_id'], r['seed']): r for r in pr['rows']}
+    if pp.keys() != bp.keys():
+        problems.append('item/seed set differs from baseline')
+    for key in pp.keys() & bp.keys():
+        if set(pp[key].get('slices') or []) != set(bp[key].get('slices') or []):
+            problems.append(f'slice tags changed: {key}')
+    if base_spec and spec.get('eval_set_version') == base_spec.get('eval_set_version'):
+        for section in ('metrics', 'slices'):
+            key = (lambda m: m['id']) if section == 'metrics' else (lambda m: (m['name'], m['metric']))
+            new = {key(m): m for m in spec.get(section, [])}
+            for old in base_spec.get(section, []):
+                current = new.get(key(old))
+                if current is None:
+                    problems.append(f'ratchet: removed {key(old)}')
+                    continue
+                if old.get('blocking') and not current.get('blocking'):
+                    problems.append(f'ratchet: nonblocking {key(old)}')
+                ot = old.get('threshold', {}) if section == 'metrics' else old
+                nt = current.get('threshold', {}) if section == 'metrics' else current
+                for field in ('min', 'max', 'max_increase', 'no_significant_drop'):
+                    if field not in ot:
+                        continue
+                    if field not in nt or (field == 'min' and nt[field] < ot[field]) or (field in ('max', 'max_increase') and nt[field] > ot[field]) or (field == 'no_significant_drop' and ot[field] and not nt[field]):
+                        problems.append(f'ratchet: loosened {key(old)} {field}')
+    return problems
 
 
 def slice_check(pr: dict, base: dict, spec: dict) -> tuple[list[str], list[str]]:
@@ -44,8 +113,26 @@ def slice_check(pr: dict, base: dict, spec: dict) -> tuple[list[str], list[str]]
       - fail if below "min", or if no_significant_drop and the paired CI over the slice's items
         lies entirely below 0
     Return (blocked ids like "slice:money_movement/pass_rate", report lines)."""
-    # TODO M5
-    return [], []
+    blocked, lines = [], []
+    bs = spec.get('bootstrap', {})
+    for entry in spec.get('slices', []):
+        name, metric = entry['name'], entry['metric']
+        mid = f'slice:{name}/{metric}'
+        a, b = per_item(pr, metric, name), per_item(base, metric, name)
+        bad = not a or a.keys() != b.keys()
+        value = sum(a.values()) / len(a) if a else None
+        note = ''
+        if value is not None:
+            bad |= 'min' in entry and value < entry['min']
+            if entry.get('no_significant_drop') and a.keys() == b.keys():
+                keys = sorted(a)
+                d, lo, hi = stats.paired_bootstrap([a[k] for k in keys], [b[k] for k in keys], n_resamples=bs.get('n_resamples', 1000), rng=bs.get('rng', 2027), confidence=bs.get('confidence', .95))
+                note = f'Δ {d:+.3f} CI [{lo:+.3f}, {hi:+.3f}]'
+                bad |= hi < 0
+        if bad and entry.get('blocking'):
+            blocked.append(mid)
+        lines.append(f'  {mid} {value} {note} {"BLOCK" if bad else "ok"}')
+    return blocked, lines
 
 
 def check(pr: dict, base: dict, spec: dict, base_spec: dict | None = None) -> tuple[list[str], list[str]]:
@@ -72,7 +159,8 @@ def check(pr: dict, base: dict, spec: dict, base_spec: dict | None = None) -> tu
             a, b = per_item(pr, mid), per_item(base, mid)
             keys = sorted(set(a) & set(b))
             d, lo, hi = stats.paired_bootstrap([a[k] for k in keys], [b[k] for k in keys],
-                                               n_resamples=bs.get("n_resamples", 1000), rng=bs.get("rng", 2027))
+                                               n_resamples=bs.get("n_resamples", 1000), rng=bs.get("rng", 2027),
+                                               confidence=bs.get('confidence', .95))
             note = f"Δ {d:+.3f} CI [{lo:+.3f}, {hi:+.3f}]"
             if hi < 0:
                 verdict = "fail"

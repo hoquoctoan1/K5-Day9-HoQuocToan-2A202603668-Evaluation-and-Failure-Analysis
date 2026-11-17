@@ -1,0 +1,5 @@
+python -m lab9.evalset --build --check
+exit_code=0; expected=0
+
+wrote data\eval\eval_set_v1.jsonl (14 items) and data\eval\labels_v1.json (14 labels)
+eval set 59df58efeea1: 0 problem(s)

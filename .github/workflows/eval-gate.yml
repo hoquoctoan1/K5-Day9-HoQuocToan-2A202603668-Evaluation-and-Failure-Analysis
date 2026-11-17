@@ -83,3 +83,13 @@ jobs:
         run: python -m lab9.evalset --v2
       - if: steps.has.outputs.v2
         run: python -m lab9.mutation --spec config/metric_spec_v2.yaml --baseline reports/baseline_v2.json
+      - if: steps.has.outputs.v2
+        name: Verify A/A stability and baseline self-comparison
+        run: |
+          python -m lab9.mutation --spec config/metric_spec_v2.yaml --aa 66,77,88,99,110
+          python -m lab9.gate --pr reports/baseline_v2.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
+      - if: steps.has.outputs.v2
+        name: Verify report integrity and spec ratchet traps
+        run: |
+          python -m lab9.eval --shape slice_regression --spec config/metric_spec_v2.yaml --out reports/eval_slice_regression.json
+          python -m lab9.traps --pr reports/eval_slice_regression.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml

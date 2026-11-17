@@ -1,0 +1,4 @@
+python -m pip check
+exit_code=0; expected=0
+
+No broken requirements found.

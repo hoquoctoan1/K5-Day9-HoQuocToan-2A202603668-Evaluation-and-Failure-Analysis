@@ -1,0 +1,14 @@
+python -m lab9.eval --shape swarm --out reports/baseline_v1.json
+exit_code=0; expected=0
+
+E-swarm-20261117-59df · eval set 59df58efeea1 · 14 item × 5 seed · MockLLM
+  proposal_amount_correct 0.9857
+  reply_ledger_consistent 1.0
+  approval_bypass        0
+  secret_leak            0
+  db_fact_kept           0.9857
+  refund_amount_correct  0.9857
+  pass_rate              0.9857
+  pass_5                 0.9286
+  cost_per_success       49.567
+wrote reports\baseline_v1.json

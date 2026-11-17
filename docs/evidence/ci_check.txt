@@ -1,0 +1,4 @@
+python -m lab9.ci_check --pr reports/eval_pr.json --baseline reports/baseline_v1.json
+exit_code=0; expected=0
+
+exit 0 — baseline and spec look sound

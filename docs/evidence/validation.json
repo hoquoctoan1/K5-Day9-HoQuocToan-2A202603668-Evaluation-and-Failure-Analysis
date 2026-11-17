@@ -1,0 +1,407 @@
+{
+  "utc": "2026-11-17T11:22:51.532905+00:00",
+  "results": [
+    {
+      "name": "smoke",
+      "args": [
+        "lab9.smoke"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "dependencies",
+      "args": [
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "build_v1",
+      "args": [
+        "lab9.evalset",
+        "--build",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "build_v2",
+      "args": [
+        "lab9.evalset",
+        "--v2",
+        "--build"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "tests_core",
+      "args": [
+        "pytest",
+        "-q",
+        "-m",
+        "student",
+        "-o",
+        "addopts=",
+        "-k",
+        "lab9 and not advanced"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "tests_advanced",
+      "args": [
+        "pytest",
+        "-q",
+        "-m",
+        "student",
+        "-o",
+        "addopts=",
+        "-k",
+        "advanced"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "judge_tone",
+      "args": [
+        "lab9.judge",
+        "--csv",
+        "data/eval/judge_tone_public.csv",
+        "--audit",
+        "10"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "judge_helpful",
+      "args": [
+        "lab9.judge",
+        "--csv",
+        "data/eval/judge_helpful_public.csv",
+        "--audit",
+        "5"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "taxonomy",
+      "args": [
+        "lab9.taxonomy_audit"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "trace_broken",
+      "args": [
+        "lab9.trace_case",
+        "--shape",
+        "seeded_regression",
+        "--claim",
+        "C-002",
+        "--seed",
+        "11"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "trace_fixed",
+      "args": [
+        "lab9.trace_case",
+        "--shape",
+        "fixed",
+        "--claim",
+        "C-002",
+        "--seed",
+        "11"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "baseline_v1",
+      "args": [
+        "lab9.eval",
+        "--shape",
+        "swarm",
+        "--out",
+        "reports/baseline_v1.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "eval_pr",
+      "args": [
+        "lab9.eval",
+        "--shape",
+        "swarm",
+        "--out",
+        "reports/eval_pr.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "eval_fixed",
+      "args": [
+        "lab9.eval",
+        "--shape",
+        "fixed",
+        "--out",
+        "reports/eval_fixed.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "eval_seeded_regression",
+      "args": [
+        "lab9.eval",
+        "--shape",
+        "seeded_regression",
+        "--out",
+        "reports/eval_seeded_regression.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "ci_check",
+      "args": [
+        "lab9.ci_check",
+        "--pr",
+        "reports/eval_pr.json",
+        "--baseline",
+        "reports/baseline_v1.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "gate_pr",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/eval_pr.json",
+        "--baseline",
+        "reports/baseline_v1.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "gate_fixed",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/eval_fixed.json",
+        "--baseline",
+        "reports/baseline_v1.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "gate_seeded_regression",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/eval_seeded_regression.json",
+        "--baseline",
+        "reports/baseline_v1.json"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "detection",
+      "args": [
+        "lab9.mutation",
+        "--detect"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "baseline_v2",
+      "args": [
+        "lab9.eval",
+        "--shape",
+        "swarm",
+        "--spec",
+        "config/metric_spec_v2.yaml",
+        "--out",
+        "reports/baseline_v2.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "aa",
+      "args": [
+        "lab9.mutation",
+        "--spec",
+        "config/metric_spec_v2.yaml",
+        "--aa",
+        "66,77,88,99,110"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "scorecard",
+      "args": [
+        "lab9.mutation",
+        "--spec",
+        "config/metric_spec_v2.yaml",
+        "--baseline",
+        "reports/baseline_v2.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "slice_regression",
+      "args": [
+        "lab9.eval",
+        "--shape",
+        "slice_regression",
+        "--spec",
+        "config/metric_spec_v2.yaml",
+        "--out",
+        "reports/eval_slice_regression.json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "traps",
+      "args": [
+        "lab9.traps",
+        "--pr",
+        "reports/eval_slice_regression.json",
+        "--baseline",
+        "reports/baseline_v2.json",
+        "--spec",
+        "config/metric_spec_v2.yaml"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "self_v2",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/baseline_v2.json",
+        "--baseline",
+        "reports/baseline_v2.json",
+        "--spec",
+        "config/metric_spec_v2.yaml",
+        "--base-spec",
+        "config/metric_spec_v2.yaml"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "trap_evaluator_errors_as_nan",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/traps/evaluator_errors_as_nan.json",
+        "--baseline",
+        "reports/baseline_v2.json",
+        "--spec",
+        "config/metric_spec_v2.yaml"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "trap_dropped_failing_rows",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/traps/dropped_failing_rows.json",
+        "--baseline",
+        "reports/baseline_v2.json",
+        "--spec",
+        "config/metric_spec_v2.yaml"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "trap_cherry_picked_seeds",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/traps/cherry_picked_seeds.json",
+        "--baseline",
+        "reports/baseline_v2.json",
+        "--spec",
+        "config/metric_spec_v2.yaml"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "trap_loosened_spec",
+      "args": [
+        "lab9.gate",
+        "--pr",
+        "reports/traps/loosened_spec.json",
+        "--baseline",
+        "reports/baseline_v2.json",
+        "--spec",
+        "reports/traps/loosened_spec.spec.yaml",
+        "--base-spec",
+        "config/metric_spec_v2.yaml"
+      ],
+      "exit_code": 1,
+      "expected": 1,
+      "ok": true
+    }
+  ]
+}

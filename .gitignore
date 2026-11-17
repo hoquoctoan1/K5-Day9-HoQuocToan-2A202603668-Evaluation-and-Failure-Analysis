@@ -1,5 +1,18 @@
 __pycache__/
 *.pyc
-src/reports/
+src/reports/*
+!src/reports/baseline_v1.json
+!src/reports/eval_pr.json
+!src/reports/eval_fixed.json
+!src/reports/eval_seeded_regression.json
+!src/reports/baseline_v2.json
+!src/reports/eval_slice_regression.json
 src/traces/
 *.sqlite
+.python/
+python-installer.exe
+# Original nested overlay; active packages and tests live directly under src/.
+src/src/
+.env
+.env.*
+src/eval/instructor/

@@ -1,0 +1,8 @@
+python -m lab9.gate --pr reports/traps/evaluator_errors_as_nan.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml
+exit_code=1; expected=1
+
+gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+  INTEGRITY PR: missing/nonfinite row metric proposal_amount_correct
+  INTEGRITY PR: missing/nonfinite row metric refund_amount_correct
+  INTEGRITY PR: missing/nonfinite row metric pass_rate
+exit 1 — blocked: integrity

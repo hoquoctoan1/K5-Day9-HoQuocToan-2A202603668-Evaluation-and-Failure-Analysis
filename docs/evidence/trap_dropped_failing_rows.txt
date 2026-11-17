@@ -1,0 +1,16 @@
+python -m lab9.gate --pr reports/traps/dropped_failing_rows.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml
+exit_code=1; expected=1
+
+gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+  INTEGRITY PR: row count/seed manifest mismatch
+  INTEGRITY PR: incomplete or duplicate item/seed grid
+  INTEGRITY PR: invalid metric pass_at_3
+  INTEGRITY PR: invalid metric pass_hat_3
+  INTEGRITY PR: invalid metric pass_at_5
+  INTEGRITY PR: invalid metric pass_hat_5
+  INTEGRITY PR: aggregate pass_at_3 differs from raw scores
+  INTEGRITY PR: aggregate pass_hat_3 differs from raw scores
+  INTEGRITY PR: aggregate pass_at_5 differs from raw scores
+  INTEGRITY PR: aggregate pass_hat_5 differs from raw scores
+  INTEGRITY item/seed set differs from baseline
+exit 1 — blocked: integrity

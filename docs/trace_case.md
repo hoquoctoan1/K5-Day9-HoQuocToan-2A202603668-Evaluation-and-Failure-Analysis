@@ -1,30 +1,14 @@
-# Trace case: từ trace tới quyết định sai đầu tiên
+# Trace case — C-002@11
 
-Một trace case trả lời một câu: **bước nào là bước sai đầu tiên**, và test nào sẽ bắt được nó lần sau.
-
-```bash
-cd src
-python -m lab9.trace_case --shape seeded_regression --claim C-002 --seed 11
-python -m lab9.trace_case --shape fixed --claim C-002 --seed 11   # đối chứng
-```
-
-Lệnh in ra ba phần: các event trong trace (`reply`, `decision`, `model_override`, `error` …), ledger so với nhãn, và lý do của grader Lab 8.
-
-## Mẫu điền (mỗi nhóm 1 case, lấy từ trial đang fail trong report)
-
-| Trường | Nội dung |
+| Trường | Kết quả thực tế |
 |---|---|
-| Trial | `<shape> <claim>@<seed>`, run ID trong report |
-| Triệu chứng | Grader nào fail; reply nói gì so với ledger ghi gì |
-| Bước sai đầu tiên | Số thứ tự event + kind + trích payload (≤1 dòng) |
-| Vì sao là bước *đầu tiên* | Các bước trước đó đúng ra sao (dẫn số event) |
-| Failure mode | Mã FM-xx trong `docs/failure_taxonomy.md` |
-| Đối chứng | Cùng claim@seed trên shape `fixed`: bước đó khác thế nào |
-| Regression test | Tên test + grader/assert nào bắt được; đã thấy fail trên variant lỗi và pass trên `fixed` chưa |
-| Chưa chắc chắn | Điều trace không chứng minh được |
+| Trial | `seeded_regression C-002@11`; report `E-seeded_regression-20261117-59df`, item E-002 |
+| Triệu chứng | `TrialPass` FAIL: `status resolved != denied`; ledger hoàn 20.000đ thay nhãn 0; reply nói đã hoàn 20.000đ. |
+| Bước sai đầu tiên | Bước 3: `model_override {"delay_days": 5}`. |
+| Vì sao đầu tiên | Bước 1 handoff chuyển đúng nhiệm vụ; bước 2 investigator trả order O-202 với DB delay_days=2; bước 3 mới thay thành 5 theo ticket. |
+| Failure mode | FM-03, model/prompt — tin ticket hơn DB. |
+| Đối chứng | `fixed C-002@11`: bước 3 quote 0, reason no_entitlement; bước 4 trả lời từ chối; ledger 0, status denied, PASS. |
+| Regression test | `tests/test_lab9_taxonomy.py::test_lab9_trace_failure_and_fixed_control` với ticket_trust/C-002: lỗi bị bắt, fixed PASS; `tests/test_lab9_graders.py::test_override_event_breaks_db_fact` kiểm grader mức bước. |
+| Giới hạn | Trace chỉ chứng minh ca và seed này; không đo suy nghĩ bên trong model hoặc xác nhận mọi cách override đều để lại event. |
 
-## Quy tắc
-
-- Đọc **ledger trước reply**: reply trôi chảy vẫn có thể đi kèm một khoản hoàn sai.
-- "Bước sai đầu tiên" phải dẫn số event cụ thể, không phải "agent bị nhầm".
-- Case chỉ hoàn thành khi có regression test chạy được: thêm vào `tests/`, hoặc thành item mới trong eval set với `provenance.from_trace`.
+Lệnh và kết quả đầy đủ: [bản lỗi](evidence/trace_broken.txt), [fixed](evidence/trace_fixed.txt). Dữ liệu đối chứng độc lập còn có trong [taxonomy_evidence.json](taxonomy_evidence.json). Không dùng lời trả lời để suy ra số tiền: số tiền lấy trực tiếp ledger.
