@@ -1,11 +1,11 @@
 # Eval card — LogiX-VN
 
-Đánh giá offline ngày 17/11/2026. Commit cha: `d1b9471540727d693c9eb392667b9f0d8a998bf5`; code/grader là working tree đã sửa, chưa phải commit đã phát hành. Hash đầu vào thực tế: [input_hashes.json](evidence/input_hashes.json).
+Đánh giá offline ngày 17/11/2026. Commit tại thời điểm tổng hợp tài liệu: `a0656b168a122857d2c2bece39dfbe88dc8f818a`. Các phép đo chạy trên code/grader và fixtures của nhánh bài nộp; thời điểm và kết quả lệnh nằm trong evidence. Fingerprint file tại thời điểm tổng hợp: [input_hashes.json](evidence/input_hashes.json).
 
 ## V1
 
-- Baseline: `E-swarm-20261117-59df`; SHA eval set `59df58efeea1`.
-- Fixed: `E-fixed-20261117-59df`; regression: `E-seeded_regression-20261117-59df`.
+- Baseline: `E-swarm-20261117-c870`; SHA eval set `c8702a0b84b4`.
+- Fixed: `E-fixed-20261117-c870`; regression: `E-seeded_regression-20261117-c870`.
 - 14 item × 5 seed [11, 22, 33, 44, 55]; nguồn lab8_public, nhãn tách trong labels_v1.json.
 - Baseline chạy swarm từ working tree hiện tại; chưa khẳng định đã được commit trên protected main.
 
@@ -49,7 +49,7 @@ Tone κ=0.757, P=0.857, R=0.8, đạt floors; helpful κ=0.375, R=0.3, bị lo�
 
 ## V2 — slice và độ ổn định
 
-Baseline `E-swarm-20261117-df85`, SHA `df8503fe9e07`; 28 item × 5 seed, gồm v1 và adversarial pack. Cơ chế tấn công được map qua fm_map.yaml, checker xác nhận ≥3 item cho mỗi FM bị tấn công.
+Baseline `E-swarm-20261117-76b9`, SHA `76b9e4e37ef0`; 28 item × 5 seed, gồm v1 và adversarial pack. Cơ chế tấn công được map qua fm_map.yaml, checker xác nhận ≥3 item cho mỗi FM bị tấn công.
 
 A/A thực tế với seeds 11/22/33/44/55 so với 66/77/88/99/110:
 
@@ -113,4 +113,10 @@ Integrity kiểm NaN/inf, grader crash, metric thiếu, row trùng/thiếu, item
 
 Chỉ pilot offline trên fixtures công khai, không gọi API thật và không chuyển tiền thật. Chưa có dữ liệu người dùng, model thật, held-out judge, trap/variant ẩn hay key anchor riêng. Không tuyên bố đạt điểm chấm ẩn. Mẫu 14/28 item và năm seed còn nhỏ; lỗi chỉ xuất hiện ở 1/3 seed không được bảo đảm phát hiện ổn định với năm lần chạy. Bug không để lại override vẫn cần kiểm outcome/độ ổn định. Grader FM-08 chỉ nhận số tiền ghi bằng chữ số kèm đơn vị đ/đồng/₫/VND, chưa bao phủ số tiền viết bằng chữ hoặc mọi câu nhiều khoản tiền.
 
-Người xử lý gate: vai trò Eval owner, chưa xác nhận người cụ thể. Phê duyệt triển khai thật và waiver chưa được cấp. Đổi eval set/nhãn phải tăng version và sinh lại baseline; cùng version chỉ siết ngưỡng. CI GitHub chưa chạy: chỉ có kiểm tra tương đương cục bộ, xem [validation.json](evidence/validation.json).
+Người xử lý gate: vai trò Eval owner, chưa xác nhận người cụ thể. Phê duyệt triển khai thật và waiver chưa được cấp. Đổi eval set/nhãn phải tăng version và sinh lại baseline; cùng version chỉ siết ngưỡng. Kiểm tra cục bộ: [validation.json](evidence/validation.json).
+
+## Nộp bài và CI thực tế
+
+PR [1](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pull/1) đã mở. Lần CI được ghi nhận: [44075603215](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215), status=completed, conclusion=success, head=a0656b168a122857d2c2bece39dfbe88dc8f818a. Đây là ảnh chụp trạng thái thực tế, không suy ra các commit sau đã qua CI.
+
+CI lần đầu chặn SHA eval set khác baseline do CRLF trên Windows và LF sau checkout Linux. Đã cố định generator xuất LF và .gitattributes giữ LF cho JSONL, rồi sinh lại báo cáo bằng harness; không bỏ kiểm tra SHA hoặc sửa tay reports. Log gốc: [ci_initial_failure.txt](evidence/ci_initial_failure.txt).

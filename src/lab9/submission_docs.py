@@ -35,11 +35,21 @@ def main():
     tone = calibrate(Path('data/eval/judge_tone_public.csv'))
     helpful = calibrate(Path('data/eval/judge_helpful_public.csv'))
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+    remote_path = DOCS / 'evidence/github_ci.json'
+    remote = json.loads(remote_path.read_text(encoding='utf-8')) if remote_path.is_file() else None
+    remote_note = 'Chưa có kết quả GitHub Actions được lưu; xem PR để kiểm tra trạng thái hiện tại.'
+    if remote:
+        runs = remote.get('runs', [])
+        latest = runs[0] if runs else {}
+        remote_note = (f"PR [{remote['pr']['number']}]({remote['pr']['html_url']}) đã mở. "
+                       f"Lần CI được ghi nhận: [{latest.get('id')}]({latest.get('html_url')}), "
+                       f"status={latest.get('status')}, conclusion={latest.get('conclusion')}, "
+                       f"head={latest.get('head_sha')}. Đây là ảnh chụp trạng thái thực tế, không suy ra các commit sau đã qua CI.")
     files = sorted([*Path('lab9').glob('*.py'), *Path('lab8').rglob('*.py'),
                     *Path('config').glob('*.yaml'), *Path('data/eval').glob('*'),
                     Path('data/public_claims.jsonl'), Path('data/public_world_state.json')])
     hashes = {p.as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files if p.is_file()}
-    (DOCS / 'evidence/input_hashes.json').write_text(json.dumps({'parent_commit': head, 'working_tree': 'modified; evaluation performed before submission commit', 'sha256': hashes}, indent=2), encoding='utf-8')
+    (DOCS / 'evidence/input_hashes.json').write_text(json.dumps({'documentation_head_commit': head, 'fingerprint_scope': 'files present when documentation is generated; actual command runs are recorded in evidence logs', 'sha256': hashes}, indent=2), encoding='utf-8')
 
     improvements = {
         'H-008': 'Quy định xưng hô anh/chị, hạn chế em/nha trong hỗ trợ khiếu nại.',
@@ -93,7 +103,7 @@ Lệnh và kết quả đầy đủ: [bản lỗi](evidence/trace_broken.txt), [
     _, slice_lines = gate.check(slice_rep, v2, spec2)
     write('eval_card.md', f'''# Eval card — LogiX-VN
 
-Đánh giá offline ngày 17/11/2026. Commit cha: `{head}`; code/grader là working tree đã sửa, chưa phải commit đã phát hành. Hash đầu vào thực tế: [input_hashes.json](evidence/input_hashes.json).
+Đánh giá offline ngày 17/11/2026. Commit tại thời điểm tổng hợp tài liệu: `{head}`. Các phép đo chạy trên code/grader và fixtures của nhánh bài nộp; thời điểm và kết quả lệnh nằm trong evidence. Fingerprint file tại thời điểm tổng hợp: [input_hashes.json](evidence/input_hashes.json).
 
 ## V1
 
@@ -153,7 +163,13 @@ Integrity kiểm NaN/inf, grader crash, metric thiếu, row trùng/thiếu, item
 
 Chỉ pilot offline trên fixtures công khai, không gọi API thật và không chuyển tiền thật. Chưa có dữ liệu người dùng, model thật, held-out judge, trap/variant ẩn hay key anchor riêng. Không tuyên bố đạt điểm chấm ẩn. Mẫu 14/28 item và năm seed còn nhỏ; lỗi chỉ xuất hiện ở 1/3 seed không được bảo đảm phát hiện ổn định với năm lần chạy. Bug không để lại override vẫn cần kiểm outcome/độ ổn định. Grader FM-08 chỉ nhận số tiền ghi bằng chữ số kèm đơn vị đ/đồng/₫/VND, chưa bao phủ số tiền viết bằng chữ hoặc mọi câu nhiều khoản tiền.
 
-Người xử lý gate: vai trò Eval owner, chưa xác nhận người cụ thể. Phê duyệt triển khai thật và waiver chưa được cấp. Đổi eval set/nhãn phải tăng version và sinh lại baseline; cùng version chỉ siết ngưỡng. CI GitHub chưa chạy: chỉ có kiểm tra tương đương cục bộ, xem [validation.json](evidence/validation.json).
+Người xử lý gate: vai trò Eval owner, chưa xác nhận người cụ thể. Phê duyệt triển khai thật và waiver chưa được cấp. Đổi eval set/nhãn phải tăng version và sinh lại baseline; cùng version chỉ siết ngưỡng. Kiểm tra cục bộ: [validation.json](evidence/validation.json).
+
+## Nộp bài và CI thực tế
+
+{remote_note}
+
+CI lần đầu chặn SHA eval set khác baseline do CRLF trên Windows và LF sau checkout Linux. Đã cố định generator xuất LF và .gitattributes giữ LF cho JSONL, rồi sinh lại báo cáo bằng harness; không bỏ kiểm tra SHA hoặc sửa tay reports. Log gốc: [ci_initial_failure.txt](evidence/ci_initial_failure.txt).
 ''')
 
     metric_rows = ['| Metric | Loại | Ngưỡng | Blocking | Baseline |', '|---|---|---|---|---|']
@@ -185,7 +201,9 @@ Xem [failure_taxonomy.md](failure_taxonomy.md) cho FM-01…FM-09, định nghĩa
 
 Chạy `python -m lab9.verify` từ src để tái hiện bằng chứng. Workflow eval-gate kiểm swarm PR, baseline, fixed và seeded_regression; eval-gate-v2 chạy dữ liệu v2, advanced tests và mutation scorecard. Baseline phải được commit và bảo vệ trên nhánh đích; không sửa report bằng tay. Khi so spec khác PR, truyền `--base-spec` lấy từ nhánh đích để ratchet có nguồn chuẩn.
 
-Gate exit 1: không merge; Eval owner điều tra trace và sửa nguyên nhân. Chưa có người được chỉ định cho vai trò này. Chưa cấp waiver; mọi ngoại lệ cần người dùng xác nhận người duyệt và ghi lý do trong PR. CI trên GitHub và PR chưa được xác nhận bằng lần chạy từ xa.
+Gate exit 1: không merge; Eval owner điều tra trace và sửa nguyên nhân. Chưa có người được chỉ định cho vai trò này. Chưa cấp waiver; mọi ngoại lệ cần người dùng xác nhận người duyệt và ghi lý do trong PR.
+
+Trạng thái nộp bài: {remote_note}
 
 ## Rủi ro và phiên bản tiếp theo
 
@@ -207,7 +225,8 @@ Chỉ ghi phê duyệt và ngày khi người dùng cung cấp xác nhận thự
               '## Bằng chứng chạy thực tế']
     for name in ['tests_core', 'tests_advanced', 'gate_seeded_regression', 'detection', 'aa', 'scorecard', 'trap_evaluator_errors_as_nan', 'trap_dropped_failing_rows', 'trap_cherry_picked_seeds', 'trap_loosened_spec']:
         output.append(f"### {name}\n\n```text\n{log(name)}\n```")
-    output.append('## Giới hạn và việc cần người dùng xác nhận\n\nChưa push/mở PR hoặc xác nhận CI từ xa. Cần xác nhận Eval owner/Product nếu muốn điền người phụ trách/phê duyệt; chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt.')
+    output.append('## Trạng thái nộp bài và CI\n\n' + remote_note)
+    output.append('## Giới hạn và việc cần người dùng xác nhận\n\nCần xác nhận Eval owner/Product nếu muốn điền người phụ trách/phê duyệt; chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt. CI ban đầu bắt được khác biệt CRLF/LF: đã sửa generator xuất LF, thêm .gitattributes và sinh lại baseline bằng harness, giữ nguyên kiểm tra SHA.')
     write('PR_DESCRIPTION.md', '\n\n'.join(output))
     print('Generated judge_audit.md, trace_case.md, eval_card.md, PRD_v1.1.md, PR_DESCRIPTION.md from actual evidence.')
 

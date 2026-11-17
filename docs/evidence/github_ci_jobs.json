@@ -1,0 +1,345 @@
+{
+  "total_count": 3,
+  "jobs": [
+    {
+      "id": 134012668239,
+      "run_id": 44075603215,
+      "workflow_name": "lab9-eval-gate",
+      "head_branch": "starter/d09",
+      "run_url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVxhhfM8AAAAfM8cJTw",
+      "head_sha": "a0656b168a122857d2c2bece39dfbe88dc8f818a",
+      "url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/jobs/134012668239",
+      "html_url": "https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215/job/134012668239",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-17T11:36:50Z",
+      "started_at": "2026-11-17T11:36:52Z",
+      "completed_at": "2026-11-17T11:36:56Z",
+      "name": "detect",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-17T11:36:53Z",
+          "completed_at": "2026-11-17T11:36:53Z"
+        },
+        {
+          "name": "Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-17T11:36:53Z",
+          "completed_at": "2026-11-17T11:36:54Z"
+        },
+        {
+          "name": "Run test -d src/lab8 && echo lab8=1 >> \"$GITHUB_OUTPUT\" || echo skip, overlay without src/lab8",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-17T11:36:54Z",
+          "completed_at": "2026-11-17T11:36:54Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-17T11:36:54Z",
+          "completed_at": "2026-11-17T11:36:54Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-17T11:36:54Z",
+          "completed_at": "2026-11-17T11:36:54Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/check-runs/134012668239",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000005,
+      "runner_name": "GitHub Actions 1000000005",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 134012720428,
+      "run_id": 44075603215,
+      "workflow_name": "lab9-eval-gate",
+      "head_branch": "starter/d09",
+      "run_url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVxhhfM8AAAAfM8fVLA",
+      "head_sha": "a0656b168a122857d2c2bece39dfbe88dc8f818a",
+      "url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/jobs/134012720428",
+      "html_url": "https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215/job/134012720428",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-17T11:36:57Z",
+      "started_at": "2026-11-17T11:36:58Z",
+      "completed_at": "2026-11-17T11:37:23Z",
+      "name": "eval-gate",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-17T11:36:59Z",
+          "completed_at": "2026-11-17T11:36:59Z"
+        },
+        {
+          "name": "Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-17T11:36:59Z",
+          "completed_at": "2026-11-17T11:37:00Z"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-17T11:37:00Z",
+          "completed_at": "2026-11-17T11:37:02Z"
+        },
+        {
+          "name": "Run uv pip install -r requirements.txt -r requirements-lab9.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-17T11:37:02Z",
+          "completed_at": "2026-11-17T11:37:03Z"
+        },
+        {
+          "name": "Run python -m lab9.smoke",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-17T11:37:03Z",
+          "completed_at": "2026-11-17T11:37:05Z"
+        },
+        {
+          "name": "Run python -m pytest -q -m student -o addopts= -k \"lab9 and not advanced\"",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-17T11:37:05Z",
+          "completed_at": "2026-11-17T11:37:08Z"
+        },
+        {
+          "name": "Run python -m lab9.evalset --check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-17T11:37:08Z",
+          "completed_at": "2026-11-17T11:37:08Z"
+        },
+        {
+          "name": "Evaluate and gate the PR swarm",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-17T11:37:08Z",
+          "completed_at": "2026-11-17T11:37:12Z"
+        },
+        {
+          "name": "Check the committed baseline and the M3 metric",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-17T11:37:12Z",
+          "completed_at": "2026-11-17T11:37:12Z"
+        },
+        {
+          "name": "Verify the gate accepts fixed",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-17T11:37:12Z",
+          "completed_at": "2026-11-17T11:37:15Z"
+        },
+        {
+          "name": "Verify the gate blocks seeded_regression",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-17T11:37:15Z",
+          "completed_at": "2026-11-17T11:37:20Z"
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-17T11:37:20Z",
+          "completed_at": "2026-11-17T11:37:22Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-17T11:37:22Z",
+          "completed_at": "2026-11-17T11:37:22Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-17T11:37:22Z",
+          "completed_at": "2026-11-17T11:37:22Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/check-runs/134012720428",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000006,
+      "runner_name": "GitHub Actions 1000000006",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 134012947687,
+      "run_id": 44075603215,
+      "workflow_name": "lab9-eval-gate",
+      "head_branch": "starter/d09",
+      "run_url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVxhhfM8AAAAfM8tM5w",
+      "head_sha": "a0656b168a122857d2c2bece39dfbe88dc8f818a",
+      "url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/jobs/134012947687",
+      "html_url": "https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215/job/134012947687",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-17T11:37:24Z",
+      "started_at": "2026-11-17T11:37:25Z",
+      "completed_at": "2026-11-17T11:38:03Z",
+      "name": "eval-gate-v2",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-17T11:37:26Z",
+          "completed_at": "2026-11-17T11:37:27Z"
+        },
+        {
+          "name": "Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-17T11:37:27Z",
+          "completed_at": "2026-11-17T11:37:28Z"
+        },
+        {
+          "name": "Run test -f reports/baseline_v2.json && echo v2=1 >> \"$GITHUB_OUTPUT\" || echo skip, no baseline_v2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-17T11:37:28Z",
+          "completed_at": "2026-11-17T11:37:28Z"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-17T11:37:28Z",
+          "completed_at": "2026-11-17T11:37:31Z"
+        },
+        {
+          "name": "Run uv pip install -r requirements.txt -r requirements-lab9.txt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-17T11:37:31Z",
+          "completed_at": "2026-11-17T11:37:31Z"
+        },
+        {
+          "name": "Run python -m pytest -q -m student -o addopts= -k advanced",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-17T11:37:31Z",
+          "completed_at": "2026-11-17T11:37:35Z"
+        },
+        {
+          "name": "Run python -m lab9.evalset --v2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-17T11:37:35Z",
+          "completed_at": "2026-11-17T11:37:35Z"
+        },
+        {
+          "name": "Run python -m lab9.mutation --spec config/metric_spec_v2.yaml --baseline reports/baseline_v2.json",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-17T11:37:35Z",
+          "completed_at": "2026-11-17T11:37:51Z"
+        },
+        {
+          "name": "Verify A/A stability and baseline self-comparison",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-17T11:37:51Z",
+          "completed_at": "2026-11-17T11:37:57Z"
+        },
+        {
+          "name": "Verify report integrity and spec ratchet traps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-17T11:37:57Z",
+          "completed_at": "2026-11-17T11:38:01Z"
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-17T11:38:01Z",
+          "completed_at": "2026-11-17T11:38:01Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-17T11:38:01Z",
+          "completed_at": "2026-11-17T11:38:01Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-17T11:38:01Z",
+          "completed_at": "2026-11-17T11:38:01Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/check-runs/134012947687",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000007,
+      "runner_name": "GitHub Actions 1000000007",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

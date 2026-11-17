@@ -1,7 +1,7 @@
 python -m lab9.gate --pr reports/baseline_v2.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
 exit_code=0; expected=0
 
-gate: PR E-swarm-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+gate: PR E-swarm-20261117-76b9 vs main E-swarm-20261117-76b9 · eval set 76b9e4e37ef0
   proposal_amount_correct 0.9786   {"min": 0.95}                                                         ok
   reply_ledger_consistent 1.0      {"min": 1.0}                                                          ok
   pass_hat_5             0.8929   {"min": 0.8}                                                          ok

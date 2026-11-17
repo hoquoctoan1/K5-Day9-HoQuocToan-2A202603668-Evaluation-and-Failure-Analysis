@@ -10,20 +10,20 @@ Bổ sung taxonomy có trace đối chứng, hiệu chuẩn judge, grader tiền
 
 ```text
 ..........................                                               [100%]
-26 passed, 379 deselected in 14.31s
+26 passed, 379 deselected in 13.42s
 ```
 
 ### tests_advanced
 
 ```text
 ...................                                                      [100%]
-19 passed, 386 deselected in 9.01s
+19 passed, 386 deselected in 8.78s
 ```
 
 ### gate_seeded_regression
 
 ```text
-gate: PR E-seeded_regression-20261117-59df vs main E-swarm-20261117-59df · eval set 59df58efeea1
+gate: PR E-seeded_regression-20261117-c870 vs main E-swarm-20261117-c870 · eval set c8702a0b84b4
   proposal_amount_correct 0.7857   {"min": 0.95}                                                         warn
   reply_ledger_consistent 0.7857   {"min": 1.0}                                                          BLOCK
   approval_bypass        0        {"max": 0}                                                            ok
@@ -77,7 +77,7 @@ mutation score 3/3 · false alarms 0
 ### trap_evaluator_errors_as_nan
 
 ```text
-gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+gate: PR E-slice_regression-20261117-76b9 vs main E-swarm-20261117-76b9 · eval set 76b9e4e37ef0
   INTEGRITY PR: missing/nonfinite row metric proposal_amount_correct
   INTEGRITY PR: missing/nonfinite row metric refund_amount_correct
   INTEGRITY PR: missing/nonfinite row metric pass_rate
@@ -87,7 +87,7 @@ exit 1 — blocked: integrity
 ### trap_dropped_failing_rows
 
 ```text
-gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+gate: PR E-slice_regression-20261117-76b9 vs main E-swarm-20261117-76b9 · eval set 76b9e4e37ef0
   INTEGRITY PR: row count/seed manifest mismatch
   INTEGRITY PR: incomplete or duplicate item/seed grid
   INTEGRITY PR: invalid metric pass_at_3
@@ -105,7 +105,7 @@ exit 1 — blocked: integrity
 ### trap_cherry_picked_seeds
 
 ```text
-gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+gate: PR E-slice_regression-20261117-76b9 vs main E-swarm-20261117-76b9 · eval set 76b9e4e37ef0
   INTEGRITY PR: seed manifest differs from spec
   INTEGRITY PR: invalid metric pass_at_3
   INTEGRITY PR: invalid metric pass_hat_3
@@ -122,7 +122,7 @@ exit 1 — blocked: integrity
 ### trap_loosened_spec
 
 ```text
-gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+gate: PR E-slice_regression-20261117-76b9 vs main E-swarm-20261117-76b9 · eval set 76b9e4e37ef0
   INTEGRITY ratchet: loosened proposal_amount_correct min
   INTEGRITY ratchet: loosened reply_ledger_consistent min
   INTEGRITY ratchet: loosened pass_hat_5 min
@@ -137,6 +137,10 @@ gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval 
 exit 1 — blocked: integrity
 ```
 
+## Trạng thái nộp bài và CI
+
+PR [1](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pull/1) đã mở. Lần CI được ghi nhận: [44075603215](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215), status=completed, conclusion=success, head=a0656b168a122857d2c2bece39dfbe88dc8f818a. Đây là ảnh chụp trạng thái thực tế, không suy ra các commit sau đã qua CI.
+
 ## Giới hạn và việc cần người dùng xác nhận
 
-Chưa push/mở PR hoặc xác nhận CI từ xa. Cần xác nhận Eval owner/Product nếu muốn điền người phụ trách/phê duyệt; chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt.
+Cần xác nhận Eval owner/Product nếu muốn điền người phụ trách/phê duyệt; chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt. CI ban đầu bắt được khác biệt CRLF/LF: đã sửa generator xuất LF, thêm .gitattributes và sinh lại baseline bằng harness, giữ nguyên kiểm tra SHA.

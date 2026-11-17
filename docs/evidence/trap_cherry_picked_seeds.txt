@@ -1,7 +1,7 @@
 python -m lab9.gate --pr reports/traps/cherry_picked_seeds.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml
 exit_code=1; expected=1
 
-gate: PR E-slice_regression-20261117-df85 vs main E-swarm-20261117-df85 · eval set df8503fe9e07
+gate: PR E-slice_regression-20261117-76b9 vs main E-swarm-20261117-76b9 · eval set 76b9e4e37ef0
   INTEGRITY PR: seed manifest differs from spec
   INTEGRITY PR: invalid metric pass_at_3
   INTEGRITY PR: invalid metric pass_hat_3

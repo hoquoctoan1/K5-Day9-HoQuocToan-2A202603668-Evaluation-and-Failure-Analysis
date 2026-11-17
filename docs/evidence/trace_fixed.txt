@@ -3,7 +3,7 @@ exit_code=0; expected=0
 
 == fixed C-002@11  lab8 grader: PASS (ok)
 -- trace (step, kind, payload)
-   1 handoff            {"facts": {}, "principal_scope": "owner_order_only", "contract_version": "handoff.v1", "task": "check_applicab
+   1 handoff            {"max_output_tokens": 400, "task": "check_applicable_policy", "facts": {}, "claim_id": "C-002", "principal_sco
    2 investigator       {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-202", "status": "delivered", "dela
    3 quote              {"amount_vnd": 0, "reason": "no_entitlement", "clause_ids": [], "parts": {}}
    4 reply              {"text": "Dạ, đơn O-202 chưa đủ điều kiện hoàn theo chính sách hiện hành."}

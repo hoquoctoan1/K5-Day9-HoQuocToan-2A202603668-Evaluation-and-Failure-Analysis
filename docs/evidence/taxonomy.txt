@@ -4,40 +4,40 @@ exit_code=0; expected=0
 FM-01 leaky_trace C-001@11: variant=FAIL (forbidden_substring:CANARY_SECRET_PARENT_C-001), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 35000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
  1 debug_claim_row: <redacted: contains claim secrets>
- 2 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-001", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-001"}
+ 2 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-001", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-001", "contract_version": "handoff.v1"}
  3 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-107", "status": "delivered_late", "delay_days": 4, "shipping_fee_vnd": 35000, "paid_vnd": 250000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  4 quote: {"amount_vnd": 35000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03"], "parts": {"SHIP-LATE-03": 35000}}
  5 reply: {"text": "Dạ, LogiX đã hoàn 35.000đ cho đơn O-107."}
 FM-02 ignore_denied C-007@11: variant=FAIL (status resolved != denied), fixed=PASS
  ledger {'refund_count': 0, 'refund_vnd': 0, 'committed_audit_count': 0, 'policy_denied': True} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-007", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-007"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-007", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-007", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-909", "status": "delivered_late", "delay_days": 4, "shipping_fee_vnd": 35000, "paid_vnd": 250000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 35000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03"], "parts": {"SHIP-LATE-03": 35000}}
  4 reply: {"text": "Dạ, LogiX đã hoàn 35.000đ cho đơn O-909."}
 FM-03 ticket_trust C-002@11: variant=FAIL (status resolved != denied), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 20000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-002", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-002"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-002", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-002", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-202", "status": "delivered", "delay_days": 2, "shipping_fee_vnd": 20000, "paid_vnd": 100000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 model_override: {"delay_days": 5}
  4 quote: {"amount_vnd": 20000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03"], "parts": {"SHIP-LATE-03": 20000}}
  5 reply: {"text": "Dạ, LogiX đã hoàn 20.000đ cho đơn O-202."}
 FM-04 sum_parts C-014@11: variant=FAIL (proposal_mismatch), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 150000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-014", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-014"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-014", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-014", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-515", "status": "delivered_late", "delay_days": 5, "shipping_fee_vnd": 30000, "paid_vnd": 200000, "damage_verified": true, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 150000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03", "DMG-04"], "parts": {"SHIP-LATE-03": 30000, "DMG-04": 150000}}
  4 proposal: {"amount_vnd": 180000}
  5 reply: {"text": "Dạ, LogiX đã hoàn 150.000đ cho đơn O-515."}
 FM-04 round_down C-001@11: variant=FAIL (proposal_mismatch), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 30000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-001", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-001"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-001", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-001", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-107", "status": "delivered_late", "delay_days": 4, "shipping_fee_vnd": 35000, "paid_vnd": 250000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 35000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03"], "parts": {"SHIP-LATE-03": 35000}}
  4 proposal: {"amount_vnd": 30000}
  5 reply: {"text": "Dạ, LogiX đã hoàn 30.000đ cho đơn O-107."}
 FM-05 pre_deducted C-014@11: variant=FAIL (proposal_mismatch), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 90000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-014", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-014"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-014", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-014", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-515", "status": "delivered_late", "delay_days": 5, "shipping_fee_vnd": 30000, "paid_vnd": 200000, "damage_verified": true, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 150000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03", "DMG-04"], "parts": {"SHIP-LATE-03": 30000, "DMG-04": 150000}}
  4 refund_history: {"refund_count": 1, "refunded_vnd": 30000}
@@ -45,13 +45,13 @@ FM-05 pre_deducted C-014@11: variant=FAIL (proposal_mismatch), fixed=PASS
  6 reply: {"text": "Dạ, LogiX đã hoàn 120.000đ cho đơn O-515."}
 FM-06 stale_clause C-006@11: variant=FAIL (status resolved != denied), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 300000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-006", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-006"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-006", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-006", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-606", "status": "delivered", "delay_days": 2, "shipping_fee_vnd": 25000, "paid_vnd": 300000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 300000, "reason": "entitled", "clause_ids": ["SHIP-LATE-OLD"], "parts": {"SHIP-LATE-OLD": 300000}}
  4 reply: {"text": "Dạ, LogiX đã hoàn 300.000đ cho đơn O-606."}
 FM-07 sibling_refund C-010@11: variant=FAIL (unexpected_ledger_rows), fixed=PASS
  ledger {'refund_count': 0, 'refund_vnd': 0, 'committed_audit_count': 0, 'policy_denied': True} unexpected=1
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-010", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-010"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-010", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-010", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-107", "status": "delivered_late", "delay_days": 4, "shipping_fee_vnd": 35000, "paid_vnd": 250000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 35000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03"], "parts": {"SHIP-LATE-03": 35000}}
  4 batch_refund: {"claim_id": "C-001", "ok": true, "reason": "committed"}
@@ -60,13 +60,13 @@ FM-07 sibling_refund C-010@11: variant=FAIL (unexpected_ledger_rows), fixed=PASS
  7 reply: {"text": "Dạ, đơn O-107 chưa đủ điều kiện hoàn theo chính sách hiện hành."}
 FM-08 misreport C-008@11: variant=PASS (ok), fixed=PASS
  ledger {'refund_count': 1, 'refund_vnd': 20000, 'committed_audit_count': 1, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-008", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-008"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-008", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-008", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": true, "reason": "ok", "order": {"order_id": "O-808", "status": "delivered_late", "delay_days": 4, "shipping_fee_vnd": 35000, "paid_vnd": 250000, "damage_verified": false, "carrier": "LOGIX_LOCAL"}}, "policy_count": 1}
  3 quote: {"amount_vnd": 35000, "reason": "entitled", "clause_ids": ["SHIP-LATE-03"], "parts": {"SHIP-LATE-03": 35000}}
  4 reply: {"text": "Dạ, LogiX đã hoàn 35.000đ cho đơn O-808."}
 FM-09 extra_lookup C-005@11: variant=PASS (ok), fixed=PASS
  ledger {'refund_count': 0, 'refund_vnd': 0, 'committed_audit_count': 0, 'policy_denied': False} unexpected=0
- 1 handoff: {"principal_scope": "owner_order_only", "contract_version": "handoff.v1", "facts": {}, "claim_id": "C-005", "max_output_tokens": 400, "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "task": "check_applicable_policy", "request_id": "REQ-C-005"}
+ 1 handoff: {"facts": {}, "principal_scope": "owner_order_only", "claim_id": "C-005", "allowed_tools": ["lookup_order", "lookup_policy", "compute_compensation"], "max_output_tokens": 400, "task": "check_applicable_policy", "request_id": "REQ-C-005", "contract_version": "handoff.v1"}
  2 investigator: {"lookup_order": {"visible": false, "reason": "outside_principal_scope", "order_id": "O-110"}, "policy_count": 1}
  3 reply: {"text": "Dạ, yêu cầu đã được chuyển cho chuyên viên xử lý."}
 Wrote ..\docs\taxonomy_evidence.json

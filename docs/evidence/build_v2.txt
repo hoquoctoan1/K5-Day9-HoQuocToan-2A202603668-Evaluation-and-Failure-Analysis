@@ -2,4 +2,4 @@ python -m lab9.evalset --v2 --build
 exit_code=0; expected=0
 
 wrote data\eval\eval_set_v2.jsonl (28 items) and data\eval\labels_v2.json (28 labels)
-eval set v2 df8503fe9e07: 0 problem(s)
+eval set v2 76b9e4e37ef0: 0 problem(s)

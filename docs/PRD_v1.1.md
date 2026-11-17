@@ -10,7 +10,7 @@ Chỉ chạy offline bằng MockLLM, public fixtures và SQLite tạm; không tr
 
 ## Định nghĩa chạy đúng
 
-Baseline `E-swarm-20261117-59df`, eval SHA `59df58efeea1`. Các giá trị sau được đọc từ report do harness sinh:
+Baseline `E-swarm-20261117-c870`, eval SHA `c8702a0b84b4`. Các giá trị sau được đọc từ report do harness sinh:
 
 | Metric | Loại | Ngưỡng | Blocking | Baseline |
 |---|---|---|---|---|
@@ -34,7 +34,9 @@ Xem [failure_taxonomy.md](failure_taxonomy.md) cho FM-01…FM-09, định nghĩa
 
 Chạy `python -m lab9.verify` từ src để tái hiện bằng chứng. Workflow eval-gate kiểm swarm PR, baseline, fixed và seeded_regression; eval-gate-v2 chạy dữ liệu v2, advanced tests và mutation scorecard. Baseline phải được commit và bảo vệ trên nhánh đích; không sửa report bằng tay. Khi so spec khác PR, truyền `--base-spec` lấy từ nhánh đích để ratchet có nguồn chuẩn.
 
-Gate exit 1: không merge; Eval owner điều tra trace và sửa nguyên nhân. Chưa có người được chỉ định cho vai trò này. Chưa cấp waiver; mọi ngoại lệ cần người dùng xác nhận người duyệt và ghi lý do trong PR. CI trên GitHub và PR chưa được xác nhận bằng lần chạy từ xa.
+Gate exit 1: không merge; Eval owner điều tra trace và sửa nguyên nhân. Chưa có người được chỉ định cho vai trò này. Chưa cấp waiver; mọi ngoại lệ cần người dùng xác nhận người duyệt và ghi lý do trong PR.
+
+Trạng thái nộp bài: PR [1](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pull/1) đã mở. Lần CI được ghi nhận: [44075603215](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215), status=completed, conclusion=success, head=a0656b168a122857d2c2bece39dfbe88dc8f818a. Đây là ảnh chụp trạng thái thực tế, không suy ra các commit sau đã qua CI.
 
 ## Rủi ro và phiên bản tiếp theo
 

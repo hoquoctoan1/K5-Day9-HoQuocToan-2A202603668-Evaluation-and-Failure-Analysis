@@ -2,7 +2,7 @@
 
 | Trường | Kết quả thực tế |
 |---|---|
-| Trial | `seeded_regression C-002@11`; report `E-seeded_regression-20261117-59df`, item E-002 |
+| Trial | `seeded_regression C-002@11`; report `E-seeded_regression-20261117-c870`, item E-002 |
 | Triệu chứng | `TrialPass` FAIL: `status resolved != denied`; ledger hoàn 20.000đ thay nhãn 0; reply nói đã hoàn 20.000đ. |
 | Bước sai đầu tiên | Bước 3: `model_override {"delay_days": 5}`. |
 | Vì sao đầu tiên | Bước 1 handoff chuyển đúng nhiệm vụ; bước 2 investigator trả order O-202 với DB delay_days=2; bước 3 mới thay thành 5 theo ticket. |

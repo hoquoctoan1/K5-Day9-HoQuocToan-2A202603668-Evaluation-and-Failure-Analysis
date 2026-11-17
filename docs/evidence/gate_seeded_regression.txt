@@ -1,7 +1,7 @@
 python -m lab9.gate --pr reports/eval_seeded_regression.json --baseline reports/baseline_v1.json
 exit_code=1; expected=1
 
-gate: PR E-seeded_regression-20261117-59df vs main E-swarm-20261117-59df · eval set 59df58efeea1
+gate: PR E-seeded_regression-20261117-c870 vs main E-swarm-20261117-c870 · eval set c8702a0b84b4
   proposal_amount_correct 0.7857   {"min": 0.95}                                                         warn
   reply_ledger_consistent 0.7857   {"min": 1.0}                                                          BLOCK
   approval_bypass        0        {"max": 0}                                                            ok

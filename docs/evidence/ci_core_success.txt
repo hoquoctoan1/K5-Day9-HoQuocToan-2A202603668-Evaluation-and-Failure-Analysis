@@ -1,0 +1,466 @@
+﻿2026-11-17T11:36:59.0881867Z Current runner version: '2.338.2'
+2026-11-17T11:36:59.0928036Z ##[group]Runner Image Provisioner
+2026-11-17T11:36:59.0929035Z Hosted Compute Agent
+2026-11-17T11:36:59.0929700Z Version: 20261103.629
+2026-11-17T11:36:59.0930525Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-17T11:36:59.0931642Z Build Date: 2026-11-03T17:26:59Z
+2026-11-17T11:36:59.0932453Z Worker ID: {bb489ce0-0036-46b0-a1bf-8e97253ecad3}
+2026-11-17T11:36:59.0933381Z Region: eastus2
+2026-11-17T11:36:59.0933955Z Cloud: Azure
+2026-11-17T11:36:59.0934652Z ##[endgroup]
+2026-11-17T11:36:59.0936724Z ##[group]Operating System
+2026-11-17T11:36:59.0937558Z Ubuntu
+2026-11-17T11:36:59.0938204Z 26.04.1
+2026-11-17T11:36:59.0938837Z LTS
+2026-11-17T11:36:59.0939502Z ##[endgroup]
+2026-11-17T11:36:59.0940137Z ##[group]Runner Image
+2026-11-17T11:36:59.0941087Z Image: ubuntu-26.04
+2026-11-17T11:36:59.0941867Z Version: 20261111.196.1
+2026-11-17T11:36:59.0943327Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-17T11:36:59.0945483Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-17T11:36:59.0946660Z ##[endgroup]
+2026-11-17T11:36:59.0948092Z ##[group]GITHUB_TOKEN Permissions
+2026-11-17T11:36:59.0950348Z Contents: read
+2026-11-17T11:36:59.0951362Z Metadata: read
+2026-11-17T11:36:59.0952138Z ##[endgroup]
+2026-11-17T11:36:59.0954744Z Secret source: Actions
+2026-11-17T11:36:59.0955840Z Cache mode: write
+2026-11-17T11:36:59.0956995Z Prepare workflow directory
+2026-11-17T11:36:59.1418948Z Prepare all required actions
+2026-11-17T11:36:59.1475227Z Getting action download info
+2026-11-17T11:36:59.3093283Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-17T11:36:59.3960036Z Download action repository 'astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2' (SHA:68559e99cc807c1eb7e9238fd43a15bba460eec2)
+2026-11-17T11:36:59.7230022Z Complete job name: eval-gate
+2026-11-17T11:36:59.7957577Z ##[group]Run actions/checkout@v7
+2026-11-17T11:36:59.7958237Z with:
+2026-11-17T11:36:59.7958599Z   persist-credentials: false
+2026-11-17T11:36:59.7959243Z   repository: hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:36:59.7962556Z   token: ***
+2026-11-17T11:36:59.7962902Z   ssh-strict: true
+2026-11-17T11:36:59.7963253Z   ssh-user: git
+2026-11-17T11:36:59.7963590Z   clean: true
+2026-11-17T11:36:59.7963943Z   sparse-checkout-cone-mode: true
+2026-11-17T11:36:59.7964352Z   fetch-depth: 1
+2026-11-17T11:36:59.7964684Z   fetch-tags: false
+2026-11-17T11:36:59.7965035Z   show-progress: true
+2026-11-17T11:36:59.7965382Z   lfs: false
+2026-11-17T11:36:59.7965708Z   submodules: false
+2026-11-17T11:36:59.7966061Z   set-safe-directory: true
+2026-11-17T11:36:59.7966455Z   allow-unsafe-pr-checkout: false
+2026-11-17T11:36:59.7967019Z env:
+2026-11-17T11:36:59.7967341Z   PYTHONUTF8: 1
+2026-11-17T11:36:59.7967707Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:36:59.7968195Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:36:59.7968628Z ##[endgroup]
+2026-11-17T11:37:00.0362390Z Syncing repository: hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:00.0364599Z ##[group]Getting Git version info
+2026-11-17T11:37:00.0366380Z Working directory is '/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis'
+2026-11-17T11:37:00.0368172Z [command]/usr/bin/git version
+2026-11-17T11:37:00.0374400Z git version 2.56.1
+2026-11-17T11:37:00.0391204Z ##[endgroup]
+2026-11-17T11:37:00.0399257Z Temporarily overriding HOME='/home/runner/work/_temp/dde70613-d024-4fed-853d-b37ca1c95444' before making global git config changes
+2026-11-17T11:37:00.0404001Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-17T11:37:00.0406276Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:00.0476252Z Deleting the contents of '/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis'
+2026-11-17T11:37:00.0479233Z ##[group]Determining repository object format
+2026-11-17T11:37:00.0480995Z ##[endgroup]
+2026-11-17T11:37:00.0482288Z ##[group]Initializing the repository
+2026-11-17T11:37:00.0485081Z [command]/usr/bin/git init /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:00.0656241Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-17T11:37:00.0657474Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-17T11:37:00.0658528Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-17T11:37:00.0659254Z hint: call:
+2026-11-17T11:37:00.0659809Z hint:
+2026-11-17T11:37:00.0660524Z hint: 	git config --global init.defaultBranch <name>
+2026-11-17T11:37:00.0661369Z hint:
+2026-11-17T11:37:00.0661996Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-17T11:37:00.0663014Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-17T11:37:00.0663826Z hint:
+2026-11-17T11:37:00.0664299Z hint: 	git branch -m <name>
+2026-11-17T11:37:00.0664874Z hint:
+2026-11-17T11:37:00.0665528Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-17T11:37:00.0669899Z Initialized empty Git repository in /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git/
+2026-11-17T11:37:00.0682162Z [command]/usr/bin/git remote add origin https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:00.0732583Z ##[endgroup]
+2026-11-17T11:37:00.0734470Z ##[group]Disabling automatic garbage collection
+2026-11-17T11:37:00.0736008Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-17T11:37:00.0766240Z ##[endgroup]
+2026-11-17T11:37:00.0767351Z ##[group]Setting up auth
+2026-11-17T11:37:00.0768244Z Removing SSH command configuration
+2026-11-17T11:37:00.0772626Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-17T11:37:00.0811402Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-17T11:37:00.1452920Z Removing HTTP extra header
+2026-11-17T11:37:00.1457978Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-17T11:37:00.1494413Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-17T11:37:00.1735627Z Removing includeIf entries pointing to credentials config files
+2026-11-17T11:37:00.1741101Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-17T11:37:00.1770109Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-17T11:37:00.2014940Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-17T11:37:00.2048504Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git.path /home/runner/work/_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.2077598Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.2111179Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.2139274Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.2166224Z ##[endgroup]
+2026-11-17T11:37:00.2167676Z ##[group]Fetching the repository
+2026-11-17T11:37:00.2172129Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +120289b8093bc1449f78b45052a61f0ade18bee8:refs/remotes/pull/1/merge
+2026-11-17T11:37:00.5263645Z From https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:00.5266144Z  * [new ref]         120289b8093bc1449f78b45052a61f0ade18bee8 -> pull/1/merge
+2026-11-17T11:37:00.5274821Z ##[endgroup]
+2026-11-17T11:37:00.5276499Z ##[group]Determining the checkout info
+2026-11-17T11:37:00.5278213Z ##[endgroup]
+2026-11-17T11:37:00.5279294Z [command]/usr/bin/git sparse-checkout disable
+2026-11-17T11:37:00.5324723Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-17T11:37:00.5352954Z ##[group]Checking out the ref
+2026-11-17T11:37:00.5354958Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/merge
+2026-11-17T11:37:00.5465504Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-11-17T11:37:00.5466456Z 
+2026-11-17T11:37:00.5467393Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-17T11:37:00.5469052Z changes and commit them, and you can discard any commits you make in this
+2026-11-17T11:37:00.5470967Z state without impacting any branches by switching back to a branch.
+2026-11-17T11:37:00.5472085Z 
+2026-11-17T11:37:00.5472912Z If you want to create a new branch to retain commits you create, you may
+2026-11-17T11:37:00.5539430Z do so (now or later) by using -c with the switch command. Example:
+2026-11-17T11:37:00.5541110Z 
+2026-11-17T11:37:00.5541613Z   git switch -c <new-branch-name>
+2026-11-17T11:37:00.5542357Z 
+2026-11-17T11:37:00.5542833Z Or undo this operation with:
+2026-11-17T11:37:00.5543607Z 
+2026-11-17T11:37:00.5544120Z   git switch -
+2026-11-17T11:37:00.5544766Z 
+2026-11-17T11:37:00.5545721Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-17T11:37:00.5547114Z 
+2026-11-17T11:37:00.5548800Z HEAD is now at 120289b Merge a0656b168a122857d2c2bece39dfbe88dc8f818a into d1b9471540727d693c9eb392667b9f0d8a998bf5
+2026-11-17T11:37:00.5554265Z ##[endgroup]
+2026-11-17T11:37:00.5558072Z [command]/usr/bin/git log -1 --format=%H
+2026-11-17T11:37:00.5559761Z 120289b8093bc1449f78b45052a61f0ade18bee8
+2026-11-17T11:37:00.5563869Z ##[group]Removing auth
+2026-11-17T11:37:00.5564974Z Removing SSH command configuration
+2026-11-17T11:37:00.5566631Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-17T11:37:00.5586542Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-17T11:37:00.5822740Z Removing HTTP extra header
+2026-11-17T11:37:00.5825748Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-17T11:37:00.5853833Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-17T11:37:00.6082185Z Removing includeIf entries pointing to credentials config files
+2026-11-17T11:37:00.6084157Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-17T11:37:00.6104981Z includeif.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git.path
+2026-11-17T11:37:00.6110019Z includeif.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git/worktrees/*.path
+2026-11-17T11:37:00.6113390Z includeif.gitdir:/github/workspace/.git.path
+2026-11-17T11:37:00.6114751Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-17T11:37:00.6119530Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git.path
+2026-11-17T11:37:00.6132424Z /home/runner/work/_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.6145582Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-a5d41e33\-be81\-45d6\-822b\-152c1b5600e7\.config
+2026-11-17T11:37:00.6183419Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git/worktrees/*.path
+2026-11-17T11:37:00.6202230Z /home/runner/work/_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.6211839Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-a5d41e33\-be81\-45d6\-822b\-152c1b5600e7\.config
+2026-11-17T11:37:00.6238947Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-17T11:37:00.6260528Z /github/runner_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.6267679Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a5d41e33\-be81\-45d6\-822b\-152c1b5600e7\.config
+2026-11-17T11:37:00.6297313Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-17T11:37:00.6317891Z /github/runner_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config
+2026-11-17T11:37:00.6326108Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a5d41e33\-be81\-45d6\-822b\-152c1b5600e7\.config
+2026-11-17T11:37:00.6355350Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-17T11:37:00.6579641Z Removing credentials config '/home/runner/work/_temp/git-credentials-a5d41e33-be81-45d6-822b-152c1b5600e7.config'
+2026-11-17T11:37:00.6587406Z ##[endgroup]
+2026-11-17T11:37:00.7048436Z ##[group]Run astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
+2026-11-17T11:37:00.7049711Z with:
+2026-11-17T11:37:00.7050429Z   python-version: 3.13
+2026-11-17T11:37:00.7051389Z   activate-environment: true
+2026-11-17T11:37:00.7052254Z   enable-cache: true
+2026-11-17T11:37:00.7053130Z   cache-dependency-glob: src/requirements*.txt
+2026-11-17T11:37:00.7054178Z   no-project: false
+2026-11-17T11:37:00.7056400Z   working-directory: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:00.7064812Z   github-token: ***
+2026-11-17T11:37:00.7065617Z   restore-cache: true
+2026-11-17T11:37:00.7066432Z   save-cache: auto
+2026-11-17T11:37:00.7067411Z   prune-cache: false
+2026-11-17T11:37:00.7068206Z   cache-python: false
+2026-11-17T11:37:00.7069041Z   ignore-nothing-to-cache: false
+2026-11-17T11:37:00.7069977Z   ignore-empty-workdir: false
+2026-11-17T11:37:00.7071105Z   download-from-astral-mirror: true
+2026-11-17T11:37:00.7072085Z   add-problem-matchers: true
+2026-11-17T11:37:00.7072948Z   quiet: false
+2026-11-17T11:37:00.7073722Z   resolution-strategy: highest
+2026-11-17T11:37:00.7074589Z env:
+2026-11-17T11:37:00.7075281Z   PYTHONUTF8: 1
+2026-11-17T11:37:00.7076072Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:00.7077052Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:00.7078029Z ##[endgroup]
+2026-11-17T11:37:00.8559118Z Trying to find version for uv in: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/uv.toml
+2026-11-17T11:37:00.8566224Z Could not find file: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/uv.toml
+2026-11-17T11:37:00.8573761Z Trying to find version for uv in: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pyproject.toml
+2026-11-17T11:37:00.8582479Z Could not find file: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pyproject.toml
+2026-11-17T11:37:00.8587622Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-11-17T11:37:00.8592931Z Fetching manifest data from https://releases.astral.sh/github/versions/main/v1/uv.ndjson ...
+2026-11-17T11:37:00.9385910Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.13.9/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-17T11:37:01.1005244Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/91031cbe-9181-472f-8f87-4e6e6eebba4c -f /home/runner/work/_temp/95d809e0-be80-4f10-9531-54bb776951ee
+2026-11-17T11:37:01.4626828Z Added /home/runner/.local/bin to the path
+2026-11-17T11:37:01.4629398Z Added /opt/hostedtoolcache/uv/0.13.9/x86_64 to the path
+2026-11-17T11:37:01.4631877Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:01.4634232Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-11-17T11:37:01.4636261Z Set UV_PYTHON to 3.13
+2026-11-17T11:37:01.4640599Z Creating and activating python venv at /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv...
+2026-11-17T11:37:01.4650493Z [command]/opt/hostedtoolcache/uv/0.13.9/x86_64/uv venv /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv --directory /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis --clear
+2026-11-17T11:37:01.6321826Z Downloading cpython-3.13.18-linux-x86_64-gnu (download) (33.9MiB)
+2026-11-17T11:37:02.1433723Z  Downloaded cpython-3.13.18-linux-x86_64-gnu (download)
+2026-11-17T11:37:02.2583490Z Using CPython 3.13.18
+2026-11-17T11:37:02.2584343Z Creating virtual environment at: .venv
+2026-11-17T11:37:02.2592655Z Activate with: .venv/bin/activate
+2026-11-17T11:37:02.2637310Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:02.2637655Z Successfully installed uv version 0.13.9
+2026-11-17T11:37:02.3874285Z Searching files using cache dependency glob: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/src/requirements*.txt
+2026-11-17T11:37:02.3921377Z /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/src/requirements-lab9.txt
+2026-11-17T11:37:02.3933391Z /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/src/requirements.txt
+2026-11-17T11:37:02.3939131Z Found 2 files to hash.
+2026-11-17T11:37:02.3997801Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-26.04-3.13-0ad0d382717819ed6d2cab69ecd2b7438c3ee48b36501fbef996fd5cb0cd7f7f
+2026-11-17T11:37:02.4505778Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-26.04-3.13-0ad0d382717819ed6d2cab69ecd2b7438c3ee48b36501fbef996fd5cb0cd7f7f
+2026-11-17T11:37:02.5648501Z ##[group]Run uv pip install -r requirements.txt -r requirements-lab9.txt
+2026-11-17T11:37:02.5649009Z [36;1muv pip install -r requirements.txt -r requirements-lab9.txt[0m
+2026-11-17T11:37:02.5699705Z shell: /usr/bin/bash -e {0}
+2026-11-17T11:37:02.5699936Z env:
+2026-11-17T11:37:02.5700103Z   PYTHONUTF8: 1
+2026-11-17T11:37:02.5700325Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:02.5700564Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:02.5701000Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:02.5701301Z   UV_PYTHON: 3.13
+2026-11-17T11:37:02.5701867Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:02.5702488Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:02.5702732Z ##[endgroup]
+2026-11-17T11:37:02.5839780Z Using Python 3.13.18 environment at: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:02.8596110Z Resolved 29 packages in 275ms
+2026-11-17T11:37:02.8765748Z Downloading scipy (33.7MiB)
+2026-11-17T11:37:02.8766469Z Downloading pygments (1.2MiB)
+2026-11-17T11:37:02.8770957Z Downloading numpy (15.0MiB)
+2026-11-17T11:37:02.8787276Z Downloading pydantic-ai-slim (2.8MiB)
+2026-11-17T11:37:02.8793457Z Downloading pydantic-core (2.2MiB)
+2026-11-17T11:37:02.9631728Z  Downloaded pygments
+2026-11-17T11:37:02.9739119Z  Downloaded pydantic-core
+2026-11-17T11:37:03.0097989Z  Downloaded pydantic-ai-slim
+2026-11-17T11:37:03.0977947Z  Downloaded numpy
+2026-11-17T11:37:03.2111366Z  Downloaded scipy
+2026-11-17T11:37:03.2112659Z Prepared 29 packages in 351ms
+2026-11-17T11:37:03.2456269Z Installed 29 packages in 34ms
+2026-11-17T11:37:03.2456690Z  + annotated-types==0.8.0
+2026-11-17T11:37:03.2457106Z  + anyio==4.16.0
+2026-11-17T11:37:03.2457485Z  + genai-prices==0.2.3
+2026-11-17T11:37:03.2457820Z  + griffelib==2.4.1
+2026-11-17T11:37:03.2458085Z  + h11==0.16.0
+2026-11-17T11:37:03.2458324Z  + httpcore2==2.16.2
+2026-11-17T11:37:03.2458582Z  + httpx2==2.16.2
+2026-11-17T11:37:03.2458883Z  + idna==3.20
+2026-11-17T11:37:03.2459139Z  + iniconfig==2.3.1
+2026-11-17T11:37:03.2459407Z  + logfire-api==5.6.0
+2026-11-17T11:37:03.2459688Z  + markdown-it-py==4.3.0
+2026-11-17T11:37:03.2459982Z  + mdurl==0.1.2
+2026-11-17T11:37:03.2460228Z  + numpy==2.5.5
+2026-11-17T11:37:03.2460566Z  + opentelemetry-api==1.45.2
+2026-11-17T11:37:03.2461189Z  + packaging==26.3
+2026-11-17T11:37:03.2461583Z  + pluggy==1.7.0
+2026-11-17T11:37:03.2461954Z  + pydantic==2.14.3
+2026-11-17T11:37:03.2462280Z  + pydantic-ai-slim==2.68.0
+2026-11-17T11:37:03.2462654Z  + pydantic-core==2.50.4
+2026-11-17T11:37:03.2463009Z  + pydantic-evals==2.68.0
+2026-11-17T11:37:03.2463371Z  + pydantic-graph==2.68.0
+2026-11-17T11:37:03.2463701Z  + pygments==2.21.0
+2026-11-17T11:37:03.2463967Z  + pytest==8.4.2
+2026-11-17T11:37:03.2464284Z  + pyyaml==6.0.3
+2026-11-17T11:37:03.2464584Z  + rich==15.0.0
+2026-11-17T11:37:03.2464869Z  + scipy==1.18.1
+2026-11-17T11:37:03.2465115Z  + truststore==0.10.5
+2026-11-17T11:37:03.2465456Z  + typing-extensions==4.16.0
+2026-11-17T11:37:03.2465834Z  + typing-inspection==0.4.5
+2026-11-17T11:37:03.2577223Z ##[group]Run python -m lab9.smoke
+2026-11-17T11:37:03.2577692Z [36;1mpython -m lab9.smoke[0m
+2026-11-17T11:37:03.2623716Z shell: /usr/bin/bash -e {0}
+2026-11-17T11:37:03.2623925Z env:
+2026-11-17T11:37:03.2624094Z   PYTHONUTF8: 1
+2026-11-17T11:37:03.2624285Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:03.2624526Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:03.2624810Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:03.2625096Z   UV_PYTHON: 3.13
+2026-11-17T11:37:03.2625640Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:03.2626264Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:03.2626517Z ##[endgroup]
+2026-11-17T11:37:05.0047765Z ok   import pydantic_evals
+2026-11-17T11:37:05.0048141Z ok   import scipy
+2026-11-17T11:37:05.0048326Z ok   import numpy
+2026-11-17T11:37:05.0048605Z ok   import yaml
+2026-11-17T11:37:05.0048784Z ok   import lab8.benchmark
+2026-11-17T11:37:05.0049014Z ok   file data/public_claims.jsonl
+2026-11-17T11:37:05.0049232Z ok   file config/metric_spec.yaml
+2026-11-17T11:37:05.0049453Z ok   file data/eval/judge_tone_public.csv
+2026-11-17T11:37:05.0049668Z M0 PASS
+2026-11-17T11:37:05.1057225Z ##[group]Run python -m pytest -q -m student -o addopts= -k "lab9 and not advanced"
+2026-11-17T11:37:05.1057677Z [36;1mpython -m pytest -q -m student -o addopts= -k "lab9 and not advanced"[0m
+2026-11-17T11:37:05.1102280Z shell: /usr/bin/bash -e {0}
+2026-11-17T11:37:05.1102487Z env:
+2026-11-17T11:37:05.1102655Z   PYTHONUTF8: 1
+2026-11-17T11:37:05.1102842Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:05.1103073Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:05.1103353Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:05.1103623Z   UV_PYTHON: 3.13
+2026-11-17T11:37:05.1104159Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:05.1104793Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:05.1105036Z ##[endgroup]
+2026-11-17T11:37:07.9277186Z ..........................                                               [100%]
+2026-11-17T11:37:07.9277670Z 26 passed, 379 deselected in 2.20s
+2026-11-17T11:37:08.1094751Z ##[group]Run python -m lab9.evalset --check
+2026-11-17T11:37:08.1095046Z [36;1mpython -m lab9.evalset --check[0m
+2026-11-17T11:37:08.1139837Z shell: /usr/bin/bash -e {0}
+2026-11-17T11:37:08.1140051Z env:
+2026-11-17T11:37:08.1140221Z   PYTHONUTF8: 1
+2026-11-17T11:37:08.1140408Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:08.1140811Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:08.1141099Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:08.1141362Z   UV_PYTHON: 3.13
+2026-11-17T11:37:08.1141891Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:08.1142508Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:08.1142763Z ##[endgroup]
+2026-11-17T11:37:08.1430470Z eval set c8702a0b84b4: 0 problem(s)
+2026-11-17T11:37:08.1500116Z ##[group]Run python -m lab9.eval --shape swarm --spec "$EVAL_SPEC" --out reports/eval_pr.json
+2026-11-17T11:37:08.1500874Z [36;1mpython -m lab9.eval --shape swarm --spec "$EVAL_SPEC" --out reports/eval_pr.json[0m
+2026-11-17T11:37:08.1501371Z [36;1mpython -m lab9.gate --pr reports/eval_pr.json --baseline "$EVAL_BASELINE" --spec "$EVAL_SPEC"[0m
+2026-11-17T11:37:08.1548762Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-17T11:37:08.1549048Z env:
+2026-11-17T11:37:08.1549212Z   PYTHONUTF8: 1
+2026-11-17T11:37:08.1549399Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:08.1549675Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:08.1549968Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:08.1550405Z   UV_PYTHON: 3.13
+2026-11-17T11:37:08.1551120Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:08.1551757Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:08.1552003Z ##[endgroup]
+2026-11-17T11:37:10.9125569Z E-swarm-20261117-c870 · eval set c8702a0b84b4 · 14 item × 5 seed · MockLLM
+2026-11-17T11:37:10.9126134Z   proposal_amount_correct 0.9857
+2026-11-17T11:37:10.9126467Z   reply_ledger_consistent 1.0
+2026-11-17T11:37:10.9126778Z   approval_bypass        0
+2026-11-17T11:37:10.9127057Z   secret_leak            0
+2026-11-17T11:37:10.9127334Z   db_fact_kept           0.9857
+2026-11-17T11:37:10.9127636Z   refund_amount_correct  0.9857
+2026-11-17T11:37:10.9127903Z   pass_rate              0.9857
+2026-11-17T11:37:10.9128104Z   pass_5                 0.9286
+2026-11-17T11:37:10.9128306Z   cost_per_success       49.567
+2026-11-17T11:37:10.9128551Z wrote reports/eval_pr.json
+2026-11-17T11:37:11.9122119Z gate: PR E-swarm-20261117-c870 vs main E-swarm-20261117-c870 · eval set c8702a0b84b4
+2026-11-17T11:37:11.9122881Z   proposal_amount_correct 0.9857   {"min": 0.95}                                                         ok
+2026-11-17T11:37:11.9123544Z   reply_ledger_consistent 1.0      {"min": 1.0}                                                          ok
+2026-11-17T11:37:11.9124160Z   approval_bypass        0        {"max": 0}                                                            ok
+2026-11-17T11:37:11.9124740Z   secret_leak            0        {"max": 0}                                                            ok
+2026-11-17T11:37:11.9125280Z   db_fact_kept           0.9857   {"min": 0.95}                                                         ok
+2026-11-17T11:37:11.9126021Z   refund_amount_correct  0.9857   {"min": 0.95, "no_significant_drop": true} Δ +0.000 CI [+0.000, +0.000] ok
+2026-11-17T11:37:11.9126788Z   pass_rate              0.9857   {"min": 0.85, "no_significant_drop": true} Δ +0.000 CI [+0.000, +0.000] ok
+2026-11-17T11:37:11.9127392Z   pass_5                 0.9286   {"min": 0.8}                                                          ok
+2026-11-17T11:37:11.9127970Z   cost_per_success       49.567   {"max_increase": 0.1}                                                 ok
+2026-11-17T11:37:11.9128485Z exit 0 — merge
+2026-11-17T11:37:12.0665259Z ##[group]Run python -m lab9.ci_check --pr reports/eval_pr.json --baseline "$EVAL_BASELINE" --spec "$EVAL_SPEC"
+2026-11-17T11:37:12.0665895Z [36;1mpython -m lab9.ci_check --pr reports/eval_pr.json --baseline "$EVAL_BASELINE" --spec "$EVAL_SPEC"[0m
+2026-11-17T11:37:12.0709354Z shell: /usr/bin/bash -e {0}
+2026-11-17T11:37:12.0709562Z env:
+2026-11-17T11:37:12.0709736Z   PYTHONUTF8: 1
+2026-11-17T11:37:12.0709930Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:12.0710168Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:12.0710455Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:12.0710827Z   UV_PYTHON: 3.13
+2026-11-17T11:37:12.0711368Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:12.0711957Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:12.0712202Z ##[endgroup]
+2026-11-17T11:37:12.5315771Z exit 0 — baseline and spec look sound
+2026-11-17T11:37:12.6046833Z ##[group]Run python -m lab9.eval --shape fixed --spec "$EVAL_SPEC" --out reports/eval_fixed.json
+2026-11-17T11:37:12.6047354Z [36;1mpython -m lab9.eval --shape fixed --spec "$EVAL_SPEC" --out reports/eval_fixed.json[0m
+2026-11-17T11:37:12.6047844Z [36;1mpython -m lab9.gate --pr reports/eval_fixed.json --baseline "$EVAL_BASELINE" --spec "$EVAL_SPEC"[0m
+2026-11-17T11:37:12.6091444Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-17T11:37:12.6091722Z env:
+2026-11-17T11:37:12.6091886Z   PYTHONUTF8: 1
+2026-11-17T11:37:12.6092222Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:12.6092454Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:12.6092739Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:12.6093003Z   UV_PYTHON: 3.13
+2026-11-17T11:37:12.6093549Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:12.6094182Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:12.6094444Z ##[endgroup]
+2026-11-17T11:37:14.0419218Z E-fixed-20261117-c870 · eval set c8702a0b84b4 · 14 item × 5 seed · MockLLM
+2026-11-17T11:37:14.0419789Z   proposal_amount_correct 1.0
+2026-11-17T11:37:14.0420133Z   reply_ledger_consistent 1.0
+2026-11-17T11:37:14.0420437Z   approval_bypass        0
+2026-11-17T11:37:14.0420855Z   secret_leak            0
+2026-11-17T11:37:14.0421131Z   db_fact_kept           1.0
+2026-11-17T11:37:14.0421423Z   refund_amount_correct  1.0
+2026-11-17T11:37:14.0421660Z   pass_rate              1.0
+2026-11-17T11:37:14.0421846Z   pass_5                 1.0
+2026-11-17T11:37:14.0422057Z   cost_per_success       48.7157
+2026-11-17T11:37:14.0422265Z wrote reports/eval_fixed.json
+2026-11-17T11:37:15.0241815Z gate: PR E-fixed-20261117-c870 vs main E-swarm-20261117-c870 · eval set c8702a0b84b4
+2026-11-17T11:37:15.0242627Z   proposal_amount_correct 1.0      {"min": 0.95}                                                         ok
+2026-11-17T11:37:15.0243327Z   reply_ledger_consistent 1.0      {"min": 1.0}                                                          ok
+2026-11-17T11:37:15.0243988Z   approval_bypass        0        {"max": 0}                                                            ok
+2026-11-17T11:37:15.0244482Z   secret_leak            0        {"max": 0}                                                            ok
+2026-11-17T11:37:15.0244856Z   db_fact_kept           1.0      {"min": 0.95}                                                         ok
+2026-11-17T11:37:15.0245438Z   refund_amount_correct  1.0      {"min": 0.95, "no_significant_drop": true} Δ +0.014 CI [+0.000, +0.043] ok
+2026-11-17T11:37:15.0245936Z   pass_rate              1.0      {"min": 0.85, "no_significant_drop": true} Δ +0.014 CI [+0.000, +0.043] ok
+2026-11-17T11:37:15.0246315Z   pass_5                 1.0      {"min": 0.8}                                                          ok
+2026-11-17T11:37:15.0246711Z   cost_per_success       48.7157  {"max_increase": 0.1}                                                 ok
+2026-11-17T11:37:15.0247046Z exit 0 — merge
+2026-11-17T11:37:15.1959163Z ##[group]Run python -m lab9.eval --shape seeded_regression --spec "$EVAL_SPEC" --out reports/eval_seeded_regression.json
+2026-11-17T11:37:15.1959833Z [36;1mpython -m lab9.eval --shape seeded_regression --spec "$EVAL_SPEC" --out reports/eval_seeded_regression.json[0m
+2026-11-17T11:37:15.1960242Z [36;1mgate_status=0[0m
+2026-11-17T11:37:15.1960915Z [36;1mgate_output=$(python -m lab9.gate --pr reports/eval_seeded_regression.json --baseline "$EVAL_BASELINE" --spec "$EVAL_SPEC") || gate_status=$?[0m
+2026-11-17T11:37:15.1961452Z [36;1mprintf '%s\n' "$gate_output"[0m
+2026-11-17T11:37:15.1961798Z [36;1m# A Python exception can also exit 1. Require the explicit pass_rate verdict.[0m
+2026-11-17T11:37:15.1962293Z [36;1mif [[ "$gate_status" -ne 1 ]] || ! grep -Eq '^exit 1 — blocked: ([^,]+, )*pass_rate(, |$)' <<< "$gate_output"; then[0m
+2026-11-17T11:37:15.1962836Z [36;1m  echo "Expected the gate to block seeded_regression on pass_rate with exit 1 (got $gate_status)."[0m
+2026-11-17T11:37:15.1963245Z [36;1m  exit 1[0m
+2026-11-17T11:37:15.1963417Z [36;1mfi[0m
+2026-11-17T11:37:15.2008944Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-17T11:37:15.2009229Z env:
+2026-11-17T11:37:15.2009409Z   PYTHONUTF8: 1
+2026-11-17T11:37:15.2009600Z   EVAL_SPEC: config/metric_spec.yaml
+2026-11-17T11:37:15.2009840Z   EVAL_BASELINE: reports/baseline_v1.json
+2026-11-17T11:37:15.2010308Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:15.2010572Z   UV_PYTHON: 3.13
+2026-11-17T11:37:15.2011223Z   VIRTUAL_ENV: /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/.venv
+2026-11-17T11:37:15.2011821Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:15.2012064Z ##[endgroup]
+2026-11-17T11:37:19.1709535Z E-seeded_regression-20261117-c870 · eval set c8702a0b84b4 · 14 item × 5 seed · MockLLM
+2026-11-17T11:37:19.1710000Z   proposal_amount_correct 0.7857
+2026-11-17T11:37:19.1710239Z   reply_ledger_consistent 0.7857
+2026-11-17T11:37:19.1710458Z   approval_bypass        0
+2026-11-17T11:37:19.1710796Z   secret_leak            0
+2026-11-17T11:37:19.1711072Z   db_fact_kept           0.9286
+2026-11-17T11:37:19.1711296Z   refund_amount_correct  0.8571
+2026-11-17T11:37:19.1711488Z   pass_rate              0.7143
+2026-11-17T11:37:19.1711676Z   pass_5                 0.7143
+2026-11-17T11:37:19.1711880Z   cost_per_success       81.202
+2026-11-17T11:37:19.1712084Z wrote reports/eval_seeded_regression.json
+2026-11-17T11:37:20.2912350Z gate: PR E-seeded_regression-20261117-c870 vs main E-swarm-20261117-c870 · eval set c8702a0b84b4
+2026-11-17T11:37:20.2912994Z   proposal_amount_correct 0.7857   {"min": 0.95}                                                         warn
+2026-11-17T11:37:20.2913591Z   reply_ledger_consistent 0.7857   {"min": 1.0}                                                          BLOCK
+2026-11-17T11:37:20.2914089Z   approval_bypass        0        {"max": 0}                                                            ok
+2026-11-17T11:37:20.2914479Z   secret_leak            0        {"max": 0}                                                            ok
+2026-11-17T11:37:20.2914866Z   db_fact_kept           0.9286   {"min": 0.95}                                                         warn
+2026-11-17T11:37:20.2915448Z   refund_amount_correct  0.8571   {"min": 0.95, "no_significant_drop": true} Δ -0.129 CI [-0.315, +0.000] BLOCK
+2026-11-17T11:37:20.2916003Z   pass_rate              0.7143   {"min": 0.85, "no_significant_drop": true} Δ -0.271 CI [-0.500, -0.057] BLOCK
+2026-11-17T11:37:20.2916408Z   pass_5                 0.7143   {"min": 0.8}                                                          warn
+2026-11-17T11:37:20.2916807Z   cost_per_success       81.202   {"max_increase": 0.1}                                                 warn
+2026-11-17T11:37:20.2917295Z exit 1 — blocked: reply_ledger_consistent, refund_amount_correct, pass_rate
+2026-11-17T11:37:20.3090582Z Post job cleanup.
+2026-11-17T11:37:20.4007276Z UV_CACHE_DIR is already set to /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:20.4009134Z UV_PYTHON_INSTALL_DIR is already set to /home/runner/work/_temp/uv-python-dir
+2026-11-17T11:37:20.4011337Z Including uv cache path: /home/runner/work/_temp/setup-uv-cache
+2026-11-17T11:37:20.4195070Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis --files-from manifest.txt --use-compress-program zstdmt
+2026-11-17T11:37:21.8831993Z Sent 58447853 of 58447853 (100.0%), 64.7 MBs/sec
+2026-11-17T11:37:22.0282820Z uv cache saved with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-26.04-3.13-0ad0d382717819ed6d2cab69ecd2b7438c3ee48b36501fbef996fd5cb0cd7f7f
+2026-11-17T11:37:22.1432427Z Post job cleanup.
+2026-11-17T11:37:22.2147840Z [command]/usr/bin/git version
+2026-11-17T11:37:22.2186545Z git version 2.56.1
+2026-11-17T11:37:22.2214384Z Temporarily overriding HOME='/home/runner/work/_temp/5bae1f1e-7fd9-41d6-96e1-b7856b426bd8' before making global git config changes
+2026-11-17T11:37:22.2215505Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-17T11:37:22.2219187Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis
+2026-11-17T11:37:22.2249720Z Removing SSH command configuration
+2026-11-17T11:37:22.2255252Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-17T11:37:22.2286576Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-17T11:37:22.2565331Z Removing HTTP extra header
+2026-11-17T11:37:22.2571178Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-17T11:37:22.2611545Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-17T11:37:22.2874522Z Removing includeIf entries pointing to credentials config files
+2026-11-17T11:37:22.2880222Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-17T11:37:22.2910288Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-17T11:37:22.3262986Z Cleaning up orphan processes

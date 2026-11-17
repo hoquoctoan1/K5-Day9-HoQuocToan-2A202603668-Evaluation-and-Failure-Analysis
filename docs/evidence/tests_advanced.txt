@@ -2,4 +2,4 @@ python -m pytest -q -m student -o addopts= -k advanced
 exit_code=0; expected=0
 
 ...................                                                      [100%]
-19 passed, 386 deselected in 9.01s
+19 passed, 386 deselected in 8.78s

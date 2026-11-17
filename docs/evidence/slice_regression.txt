@@ -1,7 +1,7 @@
 python -m lab9.eval --shape slice_regression --spec config/metric_spec_v2.yaml --out reports/eval_slice_regression.json
 exit_code=0; expected=0
 
-E-slice_regression-20261117-df85 · eval set df8503fe9e07 · 28 item × 5 seed · MockLLM
+E-slice_regression-20261117-76b9 · eval set 76b9e4e37ef0 · 28 item × 5 seed · MockLLM
   proposal_amount_correct 0.9357
   reply_ledger_consistent 1.0
   approval_bypass        0
