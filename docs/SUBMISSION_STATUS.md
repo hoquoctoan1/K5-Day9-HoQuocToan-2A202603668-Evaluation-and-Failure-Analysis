@@ -2,6 +2,8 @@
 
 Ngày kiểm tra: 17/11/2026. Nhánh local: `starter/d09`.
 
+Người dùng đã xác nhận “Đồng ý chốt phần Core”: Core là bài nộp chính, Advanced/Expert là phần bổ sung. Đây là xác nhận phạm vi lab offline, không phải phê duyệt sản phẩm thật hoặc bảo đảm điểm số; xem [scope_confirmation.json](evidence/scope_confirmation.json). Không cần tìm người ở công ty để ký việc nộp lab.
+
 Đã push và mở [PR #1](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pull/1) từ `starter/d09` vào `main`. Cả `eval-gate` và `eval-gate-v2` đã SUCCESS trên commit `a0656b1`: [lượt CI thực tế](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215). JSON từ GitHub API được lưu ở [github_ci.json](evidence/github_ci.json) và [github_ci_jobs.json](evidence/github_ci_jobs.json).
 
 ## Đã xác minh cục bộ
@@ -22,7 +24,7 @@ Ngày kiểm tra: 17/11/2026. Nhánh local: `starter/d09`.
 ## Giới hạn dữ liệu và phê duyệt thực tế
 
 - Nội dung PR và output yêu cầu đã chuẩn bị tại [PR_DESCRIPTION.md](PR_DESCRIPTION.md); trạng thái mới nhất luôn xem trực tiếp trên PR.
-- Chưa có xác nhận ai là Product/Eval owner hoặc ai duyệt waiver; PRD ghi rõ chưa phê duyệt.
+- Chưa có Product/Eval owner của tổ chức hoặc người duyệt waiver; không tự ghi phê duyệt triển khai thật. Việc nộp lab offline đã được người dùng xác nhận, không cần chữ ký công ty.
 - H-081 có note nghi nhãn người sai; chưa có ticket/rubric gốc nên giữ nguyên CSV, không tự sửa nhãn.
 - Không có hidden tests và key anchor giảng viên; không tuyên bố điểm số ẩn hoặc đạt 100 điểm.
 - Chưa có dữ liệu người dùng/model thật; chỉ đánh giá offline, chưa duyệt triển khai thực tế.

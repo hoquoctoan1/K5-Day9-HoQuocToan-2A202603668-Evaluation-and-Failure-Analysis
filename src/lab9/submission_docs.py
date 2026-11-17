@@ -163,7 +163,7 @@ Integrity kiểm NaN/inf, grader crash, metric thiếu, row trùng/thiếu, item
 
 Chỉ pilot offline trên fixtures công khai, không gọi API thật và không chuyển tiền thật. Chưa có dữ liệu người dùng, model thật, held-out judge, trap/variant ẩn hay key anchor riêng. Không tuyên bố đạt điểm chấm ẩn. Mẫu 14/28 item và năm seed còn nhỏ; lỗi chỉ xuất hiện ở 1/3 seed không được bảo đảm phát hiện ổn định với năm lần chạy. Bug không để lại override vẫn cần kiểm outcome/độ ổn định. Grader FM-08 chỉ nhận số tiền ghi bằng chữ số kèm đơn vị đ/đồng/₫/VND, chưa bao phủ số tiền viết bằng chữ hoặc mọi câu nhiều khoản tiền.
 
-Người xử lý gate: vai trò Eval owner, chưa xác nhận người cụ thể. Phê duyệt triển khai thật và waiver chưa được cấp. Đổi eval set/nhãn phải tăng version và sinh lại baseline; cùng version chỉ siết ngưỡng. Kiểm tra cục bộ: [validation.json](evidence/validation.json).
+Trong phạm vi lab, người nộp bài xử lý khi gate đỏ: đọc trace, sửa nguyên nhân rồi chạy lại. Không tự chỉ định vai trò Eval owner của tổ chức. Phê duyệt triển khai thật và waiver chưa được cấp. Đổi eval set/nhãn phải tăng version và sinh lại baseline; cùng version chỉ siết ngưỡng. Kiểm tra cục bộ: [validation.json](evidence/validation.json).
 
 ## Nộp bài và CI thực tế
 
@@ -177,9 +177,13 @@ CI lần đầu chặn SHA eval set khác baseline do CRLF trên Windows và LF 
         metric_rows.append(f"| {m['id']} | {m['kind']} | `{json.dumps(m.get('threshold', {}))}` | {m.get('blocking', False)} | {base['metrics'].get(m['id'])} |")
     write('PRD_v1.1.md', f'''# PRD v1.1 — định nghĩa đánh giá LogiX-VN
 
+## Xác nhận phạm vi bài nộp
+
+Ngày 17/11/2026, người dùng xác nhận trong hội thoại: “Đồng ý chốt phần Core”. Core là bài nộp chính theo thang 60 điểm của đề; đây không phải cam kết sẽ được chấm đủ 60 điểm. Advanced/Expert giữ làm phần bổ sung. Chỉ chạy mô phỏng offline, không triển khai hoặc chuyển tiền thật. Bằng chứng: [scope_confirmation.json](evidence/scope_confirmation.json). Xác nhận này không phải phê duyệt Product của tổ chức.
+
 ## Thay đổi
 
-Giữ phạm vi chức năng Lab 8; bổ sung tiêu chí đo được, taxonomy, bằng chứng chạy và gate trước merge. Đây là bản dự thảo kỹ thuật, không giả định đã có phê duyệt Product.
+Giữ phạm vi chức năng Lab 8; bổ sung tiêu chí đo được, taxonomy, bằng chứng chạy và gate trước merge. Đây là tài liệu kỹ thuật cho bài lab, không giả định đã có phê duyệt Product.
 
 ## Phạm vi pilot
 
@@ -201,7 +205,7 @@ Xem [failure_taxonomy.md](failure_taxonomy.md) cho FM-01…FM-09, định nghĩa
 
 Chạy `python -m lab9.verify` từ src để tái hiện bằng chứng. Workflow eval-gate kiểm swarm PR, baseline, fixed và seeded_regression; eval-gate-v2 chạy dữ liệu v2, advanced tests và mutation scorecard. Baseline phải được commit và bảo vệ trên nhánh đích; không sửa report bằng tay. Khi so spec khác PR, truyền `--base-spec` lấy từ nhánh đích để ratchet có nguồn chuẩn.
 
-Gate exit 1: không merge; Eval owner điều tra trace và sửa nguyên nhân. Chưa có người được chỉ định cho vai trò này. Chưa cấp waiver; mọi ngoại lệ cần người dùng xác nhận người duyệt và ghi lý do trong PR.
+Gate exit 1: không merge; trong phạm vi lab, người nộp bài có trách nhiệm điều tra trace và sửa nguyên nhân. Không tự chỉ định Eval owner của tổ chức. Chưa cấp waiver; ngoại lệ cần được xác nhận và ghi lý do trong PR.
 
 Trạng thái nộp bài: {remote_note}
 
@@ -213,8 +217,9 @@ MockLLM không đại diện model thật; 14/28 item và năm seed còn nhỏ; 
 
 | Vai trò | Người duyệt | Trạng thái |
 |---|---|---|
-| Product | Chưa được cung cấp | Chưa phê duyệt |
-| Eval owner | Chưa được cung cấp | Chưa xác nhận người phụ trách |
+| Phạm vi nộp lab | Người dùng qua hội thoại | Đã xác nhận Core là phần chính ngày 17/11/2026 |
+| Product của tổ chức | Không có xác nhận | Không áp dụng cho nộp lab offline; chưa duyệt triển khai thật |
+| Eval owner của tổ chức | Chưa được cung cấp | Không tự gán danh tính/vai trò ngoài bài lab |
 
 Chỉ ghi phê duyệt và ngày khi người dùng cung cấp xác nhận thực tế.
 ''')
@@ -226,7 +231,8 @@ Chỉ ghi phê duyệt và ngày khi người dùng cung cấp xác nhận thự
     for name in ['tests_core', 'tests_advanced', 'gate_seeded_regression', 'detection', 'aa', 'scorecard', 'trap_evaluator_errors_as_nan', 'trap_dropped_failing_rows', 'trap_cherry_picked_seeds', 'trap_loosened_spec']:
         output.append(f"### {name}\n\n```text\n{log(name)}\n```")
     output.append('## Trạng thái nộp bài và CI\n\n' + remote_note)
-    output.append('## Giới hạn và việc cần người dùng xác nhận\n\nCần xác nhận Eval owner/Product nếu muốn điền người phụ trách/phê duyệt; chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt. CI ban đầu bắt được khác biệt CRLF/LF: đã sửa generator xuất LF, thêm .gitattributes và sinh lại baseline bằng harness, giữ nguyên kiểm tra SHA.')
+    output.append('## Phạm vi người dùng đã xác nhận\n\nNgày 17/11/2026, người dùng xác nhận “Đồng ý chốt phần Core”: Core là bài nộp chính, Advanced/Expert giữ làm phần bổ sung. Chỉ mô phỏng offline, không triển khai hoặc chuyển tiền thật. Không coi đây là phê duyệt Product của tổ chức hoặc bảo đảm điểm số.')
+    output.append('## Giới hạn dữ liệu\n\nChưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt. CI ban đầu bắt được khác biệt CRLF/LF: đã sửa generator xuất LF, thêm .gitattributes và sinh lại baseline bằng harness, giữ nguyên kiểm tra SHA. Không cần tìm người phê duyệt ở công ty để nộp lab offline; không tự gán vai trò tổ chức.')
     write('PR_DESCRIPTION.md', '\n\n'.join(output))
     print('Generated judge_audit.md, trace_case.md, eval_card.md, PRD_v1.1.md, PR_DESCRIPTION.md from actual evidence.')
 

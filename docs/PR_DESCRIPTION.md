@@ -141,6 +141,10 @@ exit 1 — blocked: integrity
 
 PR [1](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pull/1) đã mở. Lần CI được ghi nhận: [44075603215](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215), status=completed, conclusion=success, head=a0656b168a122857d2c2bece39dfbe88dc8f818a. Đây là ảnh chụp trạng thái thực tế, không suy ra các commit sau đã qua CI.
 
-## Giới hạn và việc cần người dùng xác nhận
+## Phạm vi người dùng đã xác nhận
 
-Cần xác nhận Eval owner/Product nếu muốn điền người phụ trách/phê duyệt; chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt. CI ban đầu bắt được khác biệt CRLF/LF: đã sửa generator xuất LF, thêm .gitattributes và sinh lại baseline bằng harness, giữ nguyên kiểm tra SHA.
+Ngày 17/11/2026, người dùng xác nhận “Đồng ý chốt phần Core”: Core là bài nộp chính, Advanced/Expert giữ làm phần bổ sung. Chỉ mô phỏng offline, không triển khai hoặc chuyển tiền thật. Không coi đây là phê duyệt Product của tổ chức hoặc bảo đảm điểm số.
+
+## Giới hạn dữ liệu
+
+Chưa có dữ liệu để sửa nhãn H-081 hoặc kết luận về hidden tests. Baseline sinh từ working tree cục bộ, không giả ghi là đã được protected main duyệt. CI ban đầu bắt được khác biệt CRLF/LF: đã sửa generator xuất LF, thêm .gitattributes và sinh lại baseline bằng harness, giữ nguyên kiểm tra SHA. Không cần tìm người phê duyệt ở công ty để nộp lab offline; không tự gán vai trò tổ chức.

@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-17",
+  "source": "User confirmation in this conversation",
+  "question_scope": "Core as primary lab submission; offline simulation only, no real deployment or money movement",
+  "user_answer": "Đồng ý chốt phần Core",
+  "core_is_primary": true,
+  "advanced_expert": "supplementary completed work",
+  "production_approval": false
+}

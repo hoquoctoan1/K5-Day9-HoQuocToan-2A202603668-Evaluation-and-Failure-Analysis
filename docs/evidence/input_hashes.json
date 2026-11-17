@@ -1,5 +1,5 @@
 {
-  "documentation_head_commit": "a0656b168a122857d2c2bece39dfbe88dc8f818a",
+  "documentation_head_commit": "40367faa0b9af52a0a2ca9eaf91228ade32f5e0c",
   "fingerprint_scope": "files present when documentation is generated; actual command runs are recorded in evidence logs",
   "sha256": {
     "config/autonomy_policy.yaml": "6df9f4c0f9d9f720278afb378aa2e2fd114cf55cd3b8480d1102e99164d83ecd",
@@ -55,7 +55,7 @@
     "lab9/mutation.py": "7f1f7067ae66e018e3ee36f77ad450c032929737f71f722c2064fee7351c6bea",
     "lab9/smoke.py": "bf261040b2c5d9ad6c416527cf24c501ae923c537856d1a08be6a1e97799e022",
     "lab9/stats.py": "20985b4fd1298259a6c8967f21190d979d17bb929c9057ed0d027deff2a1b3c4",
-    "lab9/submission_docs.py": "c54650ea661838f47c43d2c08ace1c73510f159e6a15402e9cbbb804e8525201",
+    "lab9/submission_docs.py": "fa904262f374848834ea602d272df773224c70af61b0a29421a1ceed2b92efb8",
     "lab9/taxonomy_audit.py": "df2591473fae01b1a5f3a1f8c97aca3336ab2321ed5c8823e64022ac49fcd967",
     "lab9/trace_case.py": "cdfef8cf6b5c2ec7efc621ec4d99ba2b324b93557f88f0a21de42fae6372a71a",
     "lab9/traps.py": "5a631060b0069ba6b21006bf8e352a99dde5084fca01423eab3b531fff7d09dc",

@@ -1,8 +1,12 @@
 # PRD v1.1 — định nghĩa đánh giá LogiX-VN
 
+## Xác nhận phạm vi bài nộp
+
+Ngày 17/11/2026, người dùng xác nhận trong hội thoại: “Đồng ý chốt phần Core”. Core là bài nộp chính theo thang 60 điểm của đề; đây không phải cam kết sẽ được chấm đủ 60 điểm. Advanced/Expert giữ làm phần bổ sung. Chỉ chạy mô phỏng offline, không triển khai hoặc chuyển tiền thật. Bằng chứng: [scope_confirmation.json](evidence/scope_confirmation.json). Xác nhận này không phải phê duyệt Product của tổ chức.
+
 ## Thay đổi
 
-Giữ phạm vi chức năng Lab 8; bổ sung tiêu chí đo được, taxonomy, bằng chứng chạy và gate trước merge. Đây là bản dự thảo kỹ thuật, không giả định đã có phê duyệt Product.
+Giữ phạm vi chức năng Lab 8; bổ sung tiêu chí đo được, taxonomy, bằng chứng chạy và gate trước merge. Đây là tài liệu kỹ thuật cho bài lab, không giả định đã có phê duyệt Product.
 
 ## Phạm vi pilot
 
@@ -34,7 +38,7 @@ Xem [failure_taxonomy.md](failure_taxonomy.md) cho FM-01…FM-09, định nghĩa
 
 Chạy `python -m lab9.verify` từ src để tái hiện bằng chứng. Workflow eval-gate kiểm swarm PR, baseline, fixed và seeded_regression; eval-gate-v2 chạy dữ liệu v2, advanced tests và mutation scorecard. Baseline phải được commit và bảo vệ trên nhánh đích; không sửa report bằng tay. Khi so spec khác PR, truyền `--base-spec` lấy từ nhánh đích để ratchet có nguồn chuẩn.
 
-Gate exit 1: không merge; Eval owner điều tra trace và sửa nguyên nhân. Chưa có người được chỉ định cho vai trò này. Chưa cấp waiver; mọi ngoại lệ cần người dùng xác nhận người duyệt và ghi lý do trong PR.
+Gate exit 1: không merge; trong phạm vi lab, người nộp bài có trách nhiệm điều tra trace và sửa nguyên nhân. Không tự chỉ định Eval owner của tổ chức. Chưa cấp waiver; ngoại lệ cần được xác nhận và ghi lý do trong PR.
 
 Trạng thái nộp bài: PR [1](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/pull/1) đã mở. Lần CI được ghi nhận: [44075603215](https://github.com/hoquoctoan1/K5-Day9-HoQuocToan-2A202603668-Evaluation-and-Failure-Analysis/actions/runs/44075603215), status=completed, conclusion=success, head=a0656b168a122857d2c2bece39dfbe88dc8f818a. Đây là ảnh chụp trạng thái thực tế, không suy ra các commit sau đã qua CI.
 
@@ -46,7 +50,8 @@ MockLLM không đại diện model thật; 14/28 item và năm seed còn nhỏ; 
 
 | Vai trò | Người duyệt | Trạng thái |
 |---|---|---|
-| Product | Chưa được cung cấp | Chưa phê duyệt |
-| Eval owner | Chưa được cung cấp | Chưa xác nhận người phụ trách |
+| Phạm vi nộp lab | Người dùng qua hội thoại | Đã xác nhận Core là phần chính ngày 17/11/2026 |
+| Product của tổ chức | Không có xác nhận | Không áp dụng cho nộp lab offline; chưa duyệt triển khai thật |
+| Eval owner của tổ chức | Chưa được cung cấp | Không tự gán danh tính/vai trò ngoài bài lab |
 
 Chỉ ghi phê duyệt và ngày khi người dùng cung cấp xác nhận thực tế.

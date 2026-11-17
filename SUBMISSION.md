@@ -1,4 +1,5 @@
 # Nộp bài (hạn 23:59 cùng ngày)
+Phạm vi người dùng xác nhận ngày 17/11/2026: **Core là bài nộp chính; Advanced/Expert giữ làm phần bổ sung.**
 PR từ `starter/d09` → `main` của repo nhóm. Chấm commit cuối trước 23:59; commit sau hạn không tính.
 
 ## Core (nên xong trước 17:00)
